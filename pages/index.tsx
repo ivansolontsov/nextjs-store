@@ -1,4 +1,5 @@
 import React from 'react';
+import Creators from './components/Creators';
 import Hero from './components/Hero';
 import LiveAuction from './components/LiveAuction';
 import TopCollection from './components/TopCollection';
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <Why />
       <LiveAuction />
       <TopCollection />
+      <Creators />
     </>
   );
 };

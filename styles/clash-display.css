@@ -32,7 +32,7 @@
 
 
 @font-face {
-  font-family: 'ClashDisplay-Regular';
+  font-family: 'Clash Display';
   src: url('./fonts/ClashDisplay-Regular.woff2') format('woff2'),
        url('./fonts/ClashDisplay-Regular.woff') format('woff'),
        url('./fonts/ClashDisplay-Regular.ttf') format('truetype');
@@ -42,7 +42,7 @@
 }
 
 @font-face {
-  font-family: 'ClashDisplay-Medium';
+  font-family: 'Clash Display';
   src: url('./fonts/ClashDisplay-Medium.woff2') format('woff2'),
        url('./fonts/ClashDisplay-Medium.woff') format('woff'),
        url('./fonts/ClashDisplay-Medium.ttf') format('truetype');
@@ -53,7 +53,7 @@
 
 
 @font-face {
-  font-family: 'ClashDisplay-Semibold';
+  font-family: 'Clash Display';
   src: url('./fonts/ClashDisplay-Semibold.woff2') format('woff2'),
        url('./fonts/ClashDisplay-Semibold.woff') format('woff'),
        url('./fonts/ClashDisplay-Semibold.ttf') format('truetype');

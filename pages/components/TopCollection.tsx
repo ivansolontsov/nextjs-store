@@ -1,6 +1,9 @@
-import Image from 'next/image'
+import { Button } from 'antd'
 import React from 'react'
-import iphImg from '../../assets/image/iphone.jpeg'
+import CollectionCard from './CollectionCard'
+
+import { Inter } from '@next/font/google'
+const inter = Inter({ weight: ['500'], subsets: [] })
 
 type Props = {}
 
@@ -13,26 +16,11 @@ const TopCollection = (props: Props) => {
                 For crypto-collectibles
             </p>
             <div className="collection__cards">
-                <div className="collection__cards-item">
-                    <div className="collection__card-header">
-                        <small className='collection__card-created-text'>Created by</small>
-                        <h3 className="collection__card-creator">James Watson</h3>
-                    </div>
-                    <div className="collection__card-images">
-                        <div className="collection__card-image-item">
-                            <Image src={iphImg} fill alt="IphoneX" style={{ objectFit: 'cover' }} />
-                        </div>
-                        <div className="collection__card-image-item">
-                            <Image src={iphImg} fill alt="IphoneX" style={{ objectFit: 'cover' }} />
-                        </div>
-                    </div>
-                    <div className="collection__card-title">Punk Art Collection</div>
-                    <div className="collection__card-created-by">
-                        Created by
-                        <a href="#" className='collection__card-created-name'>James Watson</a>
-                    </div>
-                </div>
+               <CollectionCard />
+               <CollectionCard />
+               <CollectionCard />
             </div>
+            <Button type="default" className={`section__more-button ${inter.className}`}>Explore More</Button>
         </section>
     )
 }
