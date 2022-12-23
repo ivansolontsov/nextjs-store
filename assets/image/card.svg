@@ -1,0 +1,26 @@
+            <svg width="300" height="409" viewBox="0 0 300 409" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_b_1_153)">
+                    <g filter="url(#filter1_b_1_153)">
+                        <path d="M294.124 345.337C297.843 342.298 300 337.749 300 332.947L300 16C300 7.16345 292.837 0 284 0L16 0C7.16344 0 0 7.16343 0 16L0 393C0 401.837 7.16344 409 16 409L210.507 409C214.197 409 217.773 407.725 220.631 405.39L294.124 345.337Z" fill="#080B2A" fill-opacity="0.7" />
+                        <path d="M299.5 16L299.5 332.947C299.5 337.599 297.41 342.006 293.808 344.949L220.314 405.003C217.546 407.264 214.081 408.5 210.507 408.5L16 408.5C7.43958 408.5 0.5 401.56 0.5 393L0.5 16C0.5 7.43958 7.43958 0.5 16 0.5L284 0.5C292.56 0.5 299.5 7.43958 299.5 16Z" stroke="url(#paint0_linear_1_153)" stroke-opacity="0.7" />
+                    </g>
+                </g>
+                <defs>
+                    <filter id="filter0_b_1_153" x="-10" y="-10" width="320" height="429" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feGaussianBlur in="BackgroundImageFix" stdDeviation="5" />
+                        <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_153" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_153" result="shape" />
+                    </filter>
+                    <filter id="filter1_b_1_153" x="-10" y="-10" width="320" height="429" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feGaussianBlur in="BackgroundImageFix" stdDeviation="5" />
+                        <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_153" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_153" result="shape" />
+                    </filter>
+                    <linearGradient id="paint0_linear_1_153" x1="267" y1="370.5" x2="-9.51813e-07" y2="-3.50811e-06" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#15BFFD" />
+                        <stop offset="1" stop-color="#9C37FD" />
+                    </linearGradient>
+                </defs>
+            </svg>
