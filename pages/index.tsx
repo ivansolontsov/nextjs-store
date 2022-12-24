@@ -1,21 +1,22 @@
+import Head from 'next/head';
 import React from 'react';
-import Creators from './components/Creators';
-import Hero from './components/Hero';
-import LiveAuction from './components/LiveAuction';
-import TopCollection from './components/TopCollection';
-import Why from './components/Why';
+import Creators from '../components/Creators';
+import Hero from '../components/Hero';
+import LiveAuction from '../components/LiveAuction';
+import TopCollection from '../components/TopCollection';
+import Why from '../components/Why';
 
-// import type { RootState } from './store/store'
-// import { useSelector, useDispatch } from 'react-redux'
-// import { decrement, increment } from './features/CounterSlise'
 
 const App: React.FC = () => {
 
-  // const count = useSelector((state: RootState) => state.counter.value)
-  // const dispatch = useDispatch()
-
   return (
     <>
+      <Head>
+        <title>My page title</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="My page title" key="title" />
+        <meta property="og:description" content="Lorem ipsum" key="description" />
+      </Head>
       <Hero />
       <Why />
       <LiveAuction />

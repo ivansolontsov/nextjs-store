@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import logo from '../../assets/image/logo.svg'
-import searchIcon from '../../assets/image/icons/search.svg'
+import logo from '../assets/image/logo.svg'
 import Link from 'next/link';
 import { Badge, Button } from 'antd';
 import { ShoppingOutlined, SearchOutlined } from '@ant-design/icons';

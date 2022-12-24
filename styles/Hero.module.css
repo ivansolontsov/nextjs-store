@@ -1,0 +1,189 @@
+/* HERO  */
+.hero {
+    padding: 0px 120px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 19px;
+}
+
+.hero__info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-width: 588px;
+}
+
+.hero__info-header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hero__title {
+    font-family: "Clash Display", Arial, Helvetica, sans-serif;
+    font-size: 80px;
+    font-weight: 600;
+    line-height: 90px;
+    max-width: 568px;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero__title span {
+    font-family: "Clash Display", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    width: 100%;
+}
+
+.hero__title-line {}
+
+.hero__line-wrapper {
+    width: 427px;
+    height: 38px;
+    position: relative;
+}
+
+.hero__subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 391px;
+}
+
+.hero__button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+
+}
+
+.hero__button_primary {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    gap: 10px;
+    background: #15BFFD;
+    border: 1px solid #15BFFD;
+    border-radius: 30px;
+    transition: background-color .3s, color .3s, transform .3s;
+}
+
+.hero__button_primary:hover {
+    background-color: transparent;
+    color: #fff
+}
+
+.hero__button_primary:active {
+    transform: translateY(1px);
+}
+
+.hero__button_secondary {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    color: #15BFFD;
+    text-decoration: none;
+    display: flex;
+    gap: 13.8px;
+    transition: gap .3s, color .3s;
+}
+
+.hero__button_secondary:hover {
+    color: #fff;
+    gap: 24px;
+}
+
+.hero__categories {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding-top: 6px;
+}
+
+.hero__categories-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0px;
+}
+
+.hero__categories-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    max-width: 466px;
+    gap: 20px 12px;
+    flex-wrap: wrap;
+}
+
+.hero__categories-list-item {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 20px;
+    gap: 10px;
+    border: 1px solid #636B6F;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    transition: color .3s, background-color .3s, box-shadow .3s, border-color .3s, transform .3s;
+}
+
+.hero__categories-list-item:hover {
+    border: 1px solid #15BFFD;
+    color: #15BFFD;
+    background-color: transparent;
+}
+
+.hero__categories-list-item:focus {
+    border-color: #fff;
+}
+
+.hero__categories-list-item:active {
+    transform: translateY(1px);
+}
+
+.hero__cards {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.hero__cards-spiral {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: -255px;
+    z-index: -10;
+}
+
+.hero__cards-print {
+    position: absolute;
+    object-fit: cover;
+    width: 157px;
+    height: 133px;
+    right: 44px;
+    top: -49px;
+    z-index: -10;
+}

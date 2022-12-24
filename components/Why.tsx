@@ -1,27 +1,30 @@
 import React from 'react'
-import monkeyImg from '../../assets/image/why__monkey.png'
+
+import styles from '../styles/Why.module.css'
+
+import monkeyImg from '../assets/image/why__monkey.png'
 import Image from 'next/image';
 
 type Props = {}
 
 const Why = (props: Props) => {
     return (
-        <section className="why">
-            <div className="why__glass-wrapper">
-                <div className="why__pic">
-                    <div className="why__monkey">
+        <section className={styles['why']}>
+            <div className={styles["why__glass-wrapper"]}>
+                <div className={styles["why__pic"]}>
+                    <div className={styles["why__monkey"]}>
                         <Image src={monkeyImg} fill alt='Why Us?' />
                     </div>
                 </div>
-                <div className="why__text">
-                    <h2 className="why__text-title">Why choose us?</h2>
-                    <p className="why__text-info">
+                <div className={styles["why__text"]}>
+                    <h2 className={styles["why__text-title"]}>Why choose us?</h2>
+                    <p className={styles["why__text-info"]}>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque odit dolorum autem sit dolor unde dolorem consectetur sequi? Suscipit, ab odio quos nobis dolore earum tempore illo. Enim, asperiores debitis?
                     </p>
-                    <p className="why__text-info">
+                    <p className={styles["why__text-info"]}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </p>
-                    <button className="why__text-button">
+                    <button className={styles["why__text-button"]}>
                         Connect Wallet
                     </button>
                 </div>

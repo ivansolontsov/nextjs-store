@@ -1,0 +1,92 @@
+/* CREATORS  */
+
+.creators {
+    margin-top: 160px;
+    padding: 0px 120px;
+}
+
+
+.creators__user-list {
+    margin: 60px 0px 72px 0px;
+    display: flex;
+    gap: 24px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.creators__user-item {
+    border: 1px solid;
+    border-image-width: 30px;
+    font-family: 'Clash Display';
+    width: 384px;
+    min-height: 96px;
+    padding: 16px 18px 16px 22px;
+    backdrop-filter: blur(3px);
+    background: rgba(255, 255, 255, 0.05);
+    border: solid 2px #fff;
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow: hidden;
+    border-image-slice: 30;
+    border-image-repeat: no-repeat;
+    border-image-width: 30px;
+    border-image-source: url('../assets/image/user-card.svg');
+    clip-path: polygon(32% 0%, 100% 0%, 100% 30%, 100% 62.3%, 87% 100%, 0% 100%, 0% 70%, 0% 0%);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.creators__user-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+    object-fit: cover;
+}
+
+.creators__user-info {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    gap: 5px;
+}
+
+.creators__username {
+    font-family: 'Clash Display';
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.creators__price {
+    font-family: 'Clash Display';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.creators__follow-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #15BFFD;
+    text-decoration: underline;
+    margin-left: auto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}

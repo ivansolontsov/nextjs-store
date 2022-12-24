@@ -1,5 +1,6 @@
 import { Button } from 'antd'
 import React from 'react'
+import styles from '../styles/Collection.module.css'
 import CollectionCard from './CollectionCard'
 
 import { Inter } from '@next/font/google'
@@ -9,13 +10,13 @@ type Props = {}
 
 const TopCollection = (props: Props) => {
     return (
-        <section className={`collection`}>
+        <section className={styles['collection']}>
             <h2 className="section__title">Top Collection</h2>
             <p className="section__subtitle">
                 The largest and unique Super rare NFT marketplace
                 For crypto-collectibles
             </p>
-            <div className="collection__cards">
+            <div className={styles['collection__cards']}>
                <CollectionCard />
                <CollectionCard />
                <CollectionCard />
