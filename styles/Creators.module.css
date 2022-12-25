@@ -32,7 +32,7 @@
     border-image-slice: 30;
     border-image-repeat: no-repeat;
     border-image-width: 30px;
-    border-image-source: url('../assets/image/user-card.svg');
+    border-image-source: url('../public/image/user-card.svg');
     clip-path: polygon(32% 0%, 100% 0%, 100% 30%, 100% 62.3%, 87% 100%, 0% 100%, 0% 70%, 0% 0%);
     display: flex;
     flex-direction: row;

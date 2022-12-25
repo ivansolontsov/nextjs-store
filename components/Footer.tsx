@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import logo from '../assets/image/logo.svg'
+import logo from '../public/image/logo.svg'
 import Link from 'next/link';
 import { facebookIcon, linkedIcon, twitterIcon } from './customIcons/socialIcons';
 import Icon from '@ant-design/icons';

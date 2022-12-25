@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import iphImg from '../assets/image/iphone.jpeg'
-import ethImg from '../assets/image/eth.svg'
+import iphImg from '../public/image/iphone.jpeg'
+import ethImg from '../public/image/eth.svg'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Creators.module.css'
 

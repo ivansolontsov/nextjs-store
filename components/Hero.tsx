@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from '../styles/Hero.module.css'
-import Image from 'next/image';
-import line from '../assets/image/line.png'
-import arrowRight from '../assets/image/icons/arrow-right.svg'
-import bgLine from '../assets/image/line.svg'
-import exclusiveImg from '../assets/image/exclusive.svg'
-import Link from 'next/link';
-import ProductCard from './ProductCard';
+import Image from 'next/image'
+import line from '../public/image/line.png'
+import arrowRight from '../public/image/icons/arrow-right.svg'
+import bgLine from '../public/image/line.svg'
+import exclusiveImg from '../public/image/exclusive.svg'
+import Link from 'next/link'
+import ProductCard from './ProductCard'
 
 type Props = {}
 

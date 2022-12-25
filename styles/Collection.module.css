@@ -30,7 +30,7 @@
     border-image-slice: 10;
     border-image-repeat: round;
     border-image-width: 10px;
-    border-image-source: url('../assets/image/gradient-border.svg');
+    border-image-source: url('../public/image/gradient-border.svg');
 }
 
 .collection__card-header {

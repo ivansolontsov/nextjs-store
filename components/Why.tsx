@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from '../styles/Why.module.css'
 
-import monkeyImg from '../assets/image/why__monkey.png'
+import monkeyImg from '../public/image/why__monkey.png'
 import Image from 'next/image';
 
 type Props = {}

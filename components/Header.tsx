@@ -1,9 +1,10 @@
 import React from 'react'
 import Image from 'next/image';
-import logo from '../assets/image/logo.svg'
+import logo from '../public/image/logo.svg'
 import Link from 'next/link';
-import { Badge, Button } from 'antd';
-import { ShoppingOutlined, SearchOutlined } from '@ant-design/icons';
+import { Button } from 'antd'
+import { SearchOutlined } from '@ant-design/icons';
+import Cart from './Cart';
 
 const Header: React.FC = () => {
     return (
@@ -17,9 +18,7 @@ const Header: React.FC = () => {
             </div>
             <div className="header__buttons">
                 <Button size='large' type="ghost" icon={<SearchOutlined style={{ fontSize: '24px' }} />} className='header__search-button' />
-                <Badge count={0} offset={[-1, 0]} size={'small'}>
-                    <Button size='large' type="ghost" icon={<ShoppingOutlined style={{ fontSize: '24px' }} />} className='header__cart-button' />
-                </Badge>
+                <Cart />
             </div>
         </header>
     )

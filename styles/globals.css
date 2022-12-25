@@ -1,7 +1,7 @@
-@import './clash-display.css';
+@import './fonts/clash-display.css';
 
 body {
-    background: url('../assets//image/stars.svg'), url('../assets//image/cover.png'), #080B2A;
+    background: url('../public/image/stars.svg'), url('../public/image/cover.png'), #080B2A;
     background-size: 1440px, cover;
     background-repeat: no-repeat, repeat-y;
     background-position: top 262px center, top center;
@@ -234,6 +234,11 @@ header {
     border: 1px solid #15BFFD;
     border-radius: 30px;
     margin: 0 auto;
+}
+
+.section__more-button:disabled {
+    border: 1px solid grey;
+    color: grey;
 }
 
 .section__more-button:hover {

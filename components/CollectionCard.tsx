@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import iphImg from '../assets/image/iphone.jpeg'
+import iphImg from '../public/image/iphone.jpeg'
 import styles from '../styles/Collection.module.css'
 
 

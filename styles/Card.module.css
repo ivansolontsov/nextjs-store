@@ -1,7 +1,7 @@
 /* CARD */
 
 .card {
-    background-image: url('../assets/image/card.svg');
+    background-image: url('../public/image/card.svg');
     background-size: contain;
     background-repeat: no-repeat;
     width: 300px;
@@ -32,6 +32,10 @@
 
 .card__header-wishlist-add {
     color: #fff;
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    top: 10px;
 }
 
 .card__header-info {
@@ -50,9 +54,10 @@
     font-size: 16px;
     color: #15BFFD;
 }
+/* 
+.card__header-product-price span {
 
-.card__header-product-price span {}
-
+} */
 
 .card__image {
     position: relative;
@@ -69,7 +74,7 @@
 }
 
 .card__large {
-    background-image: url('../assets//image/large-card.svg');
+    background-image: url('../public/image/large-card.svg');
     width: 384px;
     height: 460px;
     padding: 20.5px;
