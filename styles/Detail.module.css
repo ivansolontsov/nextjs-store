@@ -1,0 +1,63 @@
+.detail {
+    padding: 0px 120px 0px 120px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 25px
+}
+
+.detail__image {
+    position: relative;
+    width: 400px;
+    min-height: 400px;
+    object-fit: cover;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.detail__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail__title {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 24px;
+    font-family: 'Clash Display';
+    font-weight: 600;
+}
+
+.detail__actions {
+    min-width: 300px;
+    height: max-content;
+    margin-left: auto;
+    background-color: rgb(0 63 86 / 12%);
+    padding: 32px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    gap: 25px;
+    border: 1px solid rgb(33 150 243 / 16%);
+    box-shadow: 0 0 20px #003f7117;
+    position: sticky;
+    top: 10px;
+}
+
+.details__actions-cart-button {
+    font-weight: 600;
+    font-family: "Clash Display";
+    font-size: 24px;
+    background-color: #15BFFD;
+    border: none;
+}
+
+.details__price {
+    margin: 0px;
+    padding: 0px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Clash Display";
+}

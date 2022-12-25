@@ -3,7 +3,7 @@ import React from 'react'
 import styles from '../styles/Card.module.css'
 import iphImg from '../public/image/iphone.jpeg'
 import { HeartOutlined } from '@ant-design/icons';
-import { Button, Tooltip, message, Space } from 'antd'
+import { Button, Tooltip } from 'antd'
 import { Poppins, Inter } from '@next/font/google'
 import { IProduct } from '../store/products/productTypes';
 import { Skeleton } from 'antd';
@@ -11,6 +11,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import Link from 'next/link';
 
 const poppins = Poppins({ weight: ['500', '600'], subsets: [] })
 const inter = Inter({ weight: ['600'], subsets: [] })
@@ -23,8 +24,6 @@ type Props = {
 }
 
 const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
-
-    const [messageApi, contextHolder] = message.useMessage();
     const { addItem } = useActions() // ВЫЗЫВАЕМ ЭКШН ДОБАВИТЬ В КОРЗИНУ
     const { cart } = useTypedSelector(state => state) // ВЫЗЫВАЕМ СЕЛЕКТОР СТОРА
     const isAlreadyInCart = cart.some(el => el.id === productInfo?.id) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
@@ -45,14 +44,6 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
         )
     }
 
-    // SUCCESS MESSAGE
-    const success = (productInfo: IProduct) => {
-        messageApi.open({
-            type: 'success',
-            content: `You've successfully added ${productInfo.title} in your shopping cart.`,
-        });
-    };
-
     // РЕНДЕР ЕСЛИ ИНФОРМАЦИЯ ЕСТЬ
     return (
         <div className={`${styles['card']} ${poppins.className} ${isBig ? styles['card__large'] : ''} ${rotated ? styles['card__rotated'] : ''}`}>
@@ -61,6 +52,11 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
                     <small className={styles['card__header-category-name']}>{productInfo.category}</small>
                     <small className={styles['card__header-product-price']}><span>$</span>{productInfo.price}</small>
                 </div>
+                {!isBig && (
+                    <Link href={`/products/${productInfo.id}`} className={`${styles['card__large-button']} ${inter.className}`}>
+                        See More
+                    </Link>
+                )}
                 {isBig && (
                     <Button
                         disabled={isAlreadyInCart}
@@ -68,7 +64,6 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
                         className={`${styles['card__large-button']} ${inter.className}`}
                         onClick={() => {
                             addItem(productInfo)
-                            success(productInfo)
                         }}
                     >
                         {isAlreadyInCart ? 'Product Added' : 'Add In Cart'}
@@ -98,7 +93,6 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
                     </ul>
                 )}
             </div>
-            {contextHolder}
         </div>
     )
 }

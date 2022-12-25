@@ -7,10 +7,15 @@ import bgLine from '../public/image/line.svg'
 import exclusiveImg from '../public/image/exclusive.svg'
 import Link from 'next/link'
 import ProductCard from './ProductCard'
+import { useGetCategoriesQuery } from '../store/categories/categoryApi'
+import { Skeleton } from 'antd'
 
 type Props = {}
 
 const Hero = (props: Props) => {
+
+    const { data, isLoading, error } = useGetCategoriesQuery();
+
     return (
         <section className={styles['hero']}>
             <div className={styles['hero__info']}>
@@ -23,10 +28,10 @@ const Hero = (props: Props) => {
                     </div>
                 </div>
                 <div className={styles['hero__subtitle']}>
-                    Not so large and unique, but looks cool 😂
+                    React, Next.js, Redux Toolkit, Antd, TypeScript
                 </div>
                 <div className={styles['hero__button-group']}>
-                    <button className={styles['hero__button_primary']}>Your Cart</button>
+                    <Link href='/catalog' className={styles['hero__button_primary']}>Catalog</Link>
                     <Link href='/' className={styles['hero__button_secondary']}>Your Wish List <Image src={arrowRight} width={28} alt='Arrow Right' /></Link>
                 </div>
 
@@ -34,15 +39,23 @@ const Hero = (props: Props) => {
                     <h2 className={styles['hero__categories-title']}>
                         Categories that may be useful
                     </h2>
-                    <ul className={styles['hero__categories-list']}>
-                        <li className={styles['hero__categories-list-item']}>Smartphones</li>
-                        <li className={styles['hero__categories-list-item']}>TVs</li>
-                        <li className={styles['hero__categories-list-item']}>Notebooks</li>
-                        <li className={styles['hero__categories-list-item']}>PC</li>
-                        <li className={styles['hero__categories-list-item']}>HardWare</li>
-                        <li className={styles['hero__categories-list-item']}>Software</li>
-                        <li className={styles['hero__categories-list-item']}>MiddleWare</li>
-                    </ul>
+                    {error ? (
+                        <>
+                            Error
+                        </>
+                    ) : isLoading ? (
+                        <ul className={styles['hero__categories-list']}>
+                            <Skeleton.Button active size='small' shape='round' block={true} />
+                        </ul>
+                    ) : data ? (
+                        <div className={styles['hero__categories-list']}>
+                            {
+                                data.slice(0, 6).map((name, index) => (
+                                    <Link key={index} href={`categories/${name}`} className={styles['hero__categories-list-item']}>{name}</Link>
+                                ))
+                            }
+                        </div>
+                    ) : null}
                 </div>
             </div>
             <div className={styles['hero__cards']}>
@@ -55,7 +68,7 @@ const Hero = (props: Props) => {
                 <ProductCard />
                 <ProductCard rotated={true} />
             </div>
-        </section>
+        </section >
     )
 }
 

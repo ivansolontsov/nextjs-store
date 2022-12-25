@@ -1,0 +1,14 @@
+.products {
+    padding: 20px 120px 80px 120px;
+}
+
+.products h2 {
+    text-align: center;
+}
+
+.products__wrapper {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

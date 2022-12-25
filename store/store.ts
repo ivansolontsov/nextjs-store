@@ -1,15 +1,44 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { ProductApi } from './products/ProductApi'
+import { CategoryApi } from './categories/categoryApi'
 import { cartReducer } from './cart/cartSlice'
+import { cartModal, cartModalReducer } from './cart/cartModal'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
+import storage from 'redux-persist/lib/storage'
+import {
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
+import { combineReducers } from '@reduxjs/toolkit'
+
+const persistConfig = {
+  key: 'root',
+  storage: storage,
+  blacklist: ['apiProductSlice'],
+}
+
+const reducer = combineReducers({
+  cart: cartReducer,
+  cartModal: cartModalReducer,
+  [ProductApi.reducerPath]: ProductApi.reducer,
+  [CategoryApi.reducerPath]: CategoryApi.reducer,
+})
+
+const persistedReducer = persistReducer(persistConfig, reducer)
 
 export const store = configureStore({
-  reducer: {
-    [ProductApi.reducerPath]: ProductApi.reducer,
-    cart: cartReducer
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(ProductApi.middleware),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(ProductApi.middleware, CategoryApi.middleware),
 })
 
 setupListeners(store.dispatch)

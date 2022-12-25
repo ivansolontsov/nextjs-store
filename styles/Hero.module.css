@@ -64,6 +64,8 @@
 }
 
 .hero__button_primary {
+    color: white;
+    text-decoration: none;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -141,6 +143,9 @@
     align-items: center;
     padding: 4px 20px;
     gap: 10px;
+    color: white;
+    text-decoration: none;
+    text-transform: capitalize;
     border: 1px solid #636B6F;
     border-radius: 20px;
     font-weight: 500;

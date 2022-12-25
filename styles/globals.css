@@ -1,16 +1,18 @@
 @import './fonts/clash-display.css';
 
 body {
-    background: url('../public/image/stars.svg'), url('../public/image/cover.png'), #080B2A;
+    /* background: url('../public/image/stars.svg'), url('../public/image/cover.png'), #080B2A; */
+    background: #080B2A;
     background-size: 1440px, cover;
     background-repeat: no-repeat, repeat-y;
     background-position: top 262px center, top center;
     color: #fff;
+    transition: background-position .3s;
 }
 
 .container {
     max-width: 1440px;
-    min-height: 100%;
+    min-height: 1000px;
     margin: 0 auto;
 }
 
@@ -22,6 +24,19 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    z-index: 2;
+    top: 0px;
+    transition: background-color .3s, padding .3s;
+}
+
+.header__scrolled {
+    background-color: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(7px);
+    border-radius: 0px 0px 16px 16px;
+    padding: 15px 30px 20px 30px;
+    border: 1px solid #ffffff24;
+    border-top: none;
 }
 
 .header__nav {
@@ -209,10 +224,10 @@ header {
     margin-top: 0px;
     margin-bottom: 16px;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .section__subtitle {
-
     max-width: 400px;
     font-style: normal;
     font-weight: 400;
