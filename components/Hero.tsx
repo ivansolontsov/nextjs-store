@@ -59,12 +59,12 @@ const Hero = (props: Props) => {
                 </div>
             </div>
             <div className={styles['hero__cards']}>
-                <div className={styles['hero__cards-print']}>
+                {/* <div className={styles['hero__cards-print']}>
                     <Image src={exclusiveImg} fill alt={'Exclusive'} sizes='(max-width: 1600px) 113px' style={{ objectFit: 'cover' }} />
-                </div>
-                <div className={styles['hero__cards-spiral']}>
-                    <Image src={bgLine} priority={true} width={711} height={571} alt={'Spiral'} sizes='(max-width: 1600px) 514px' />
-                </div>
+                </div> */}
+                {/* <div className={styles['hero__cards-spiral']}>
+                    <Image src={bgLine} priority={true} fill alt={'Spiral'} sizes='(max-width: 1600px) 514px' style={{ objectFit: 'cover' }} />
+                </div> */}
                 <ProductCard />
                 <ProductCard rotated={true} />
             </div>

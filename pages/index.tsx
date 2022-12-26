@@ -17,10 +17,10 @@ const App: React.FC = () => {
         <meta property="og:description" content="Lorem ipsum" key="description" />
       </Head>
       <Hero />
-      <Why />
+      {/* <Why />
       <LiveAuction />
       <TopCollection />
-      <Creators />
+      <Creators /> */}
     </>
   );
 };

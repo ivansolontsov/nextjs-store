@@ -2,11 +2,9 @@
 
 body {
     background:
-        /* url('../public/image/line.svg'), */
         url('../public/image/stars.svg'),
         url('../public/image/bg-blurred-blobs.svg'),
         #080B2A;
-    /* background: #080B2A; */
     background-size: 1440px, cover;
     background-repeat: no-repeat, repeat-y;
     background-position: top 262px center, top center;
