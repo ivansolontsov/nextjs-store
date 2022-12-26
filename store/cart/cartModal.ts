@@ -8,10 +8,10 @@ export const cartModal = createSlice({
     name: 'cartModal',
     initialState,
     reducers: {
-        openModal: (state, action) => {
+        openModal: (state, action:PayloadAction) => {
             state.isOpen = true;
         },
-        closeModal: (state, action) => {
+        closeModal: (state, action:PayloadAction) => {
             state.isOpen = false;
         }
     }

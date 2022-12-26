@@ -14,7 +14,7 @@ const CreatorCard = (props: Props) => {
     return (
         <div className={styles['creators__user-item']}>
             <div className={styles['creators__user-avatar']}>
-                <Image src={iphImg} fill alt="Username" />
+                <Image src={iphImg} fill alt="Username" sizes='(max-width:1600px) 56px' />
             </div>
             <div className={styles['creators__user-info']}>
                 <h3 className={styles['creators__username']}>Emerson Philips</h3>

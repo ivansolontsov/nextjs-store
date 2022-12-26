@@ -2,12 +2,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
 export const CategoryApi = createApi({
     reducerPath: 'categoryApi',
-    tagTypes: ['Category'],
+    tagTypes: ['catgories'],
     baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/' }),
     endpoints: (build) => ({
-        getCategories: build.query<[], string>({
+        getCategories: build.query<string[], void>({
             query: () => `products/categories`,
-            providesTags: ['Category'],
+            providesTags: ['catgories'],
         }),
     })
 })

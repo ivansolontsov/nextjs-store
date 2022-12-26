@@ -15,10 +15,10 @@ const CollectionCard = (props: Props) => {
             </div>
             <div className={styles['collection__card-images']}>
                 <div className={styles['collection__card-image-item']}>
-                    <Image src={iphImg} fill alt='IphoneX' style={{ objectFit: 'cover' }} />
+                    <Image src={iphImg} fill alt='IphoneX' sizes='(max-width:1600px) 168px' style={{ objectFit: 'cover' }} />
                 </div>
                 <div className={styles['collection__card-image-item']}>
-                    <Image src={iphImg} fill alt='IphoneX' style={{ objectFit: 'cover' }} />
+                    <Image src={iphImg} fill alt='IphoneX' sizes='(max-width:1600px) 168px' style={{ objectFit: 'cover' }} />
                 </div>
             </div>
             <div className={styles['collection__card-title']}>Punk Art Collection</div>

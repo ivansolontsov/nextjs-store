@@ -1,10 +1,11 @@
 /* HERO  */
 .hero {
-    padding: 0px 120px;
+    padding: 0px 0px 0px 120px;
     margin-top: 80px;
     display: flex;
     flex-direction: row;
     gap: 19px;
+    position: relative;
 }
 
 .hero__info {
@@ -175,6 +176,7 @@
     width: 100%;
 }
 
+
 .hero__cards-spiral {
     position: absolute;
     width: 100%;
@@ -191,4 +193,11 @@
     right: 44px;
     top: -49px;
     z-index: -10;
+}
+
+
+@media screen and (max-width: 1734px) {
+    /* .hero {
+        padding: 0px;
+    } */
 }

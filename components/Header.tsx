@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     const [scrolled, setScrolled] = React.useState(false)
 
     const listenScrollEvent = () => {
-        if (window.scrollY >= 100) {
+        if (window.scrollY >= 1) {
             setScrolled(true)
         } else {
             setScrolled(false)
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
 
 
     return (
-        <header className={`${scrolled ? 'header__scrolled' : ''}`}>
+        <header className={`header ${scrolled ? 'header__scrolled' : ''}`}>
             <div className="header__left-side">
                 <Link href='/'><Image src={logo} width={247} height={48} alt={'logo'} /></Link>
                 <nav className='header__nav'>

@@ -17,7 +17,7 @@ const Category: FC = () => {
     const [limit, setLimit] = React.useState(20)
     const [total, setTotal] = React.useState(0)
     const [disabled, setDisabled] = React.useState(true)
-    const fetching = useGetProductsByCategoryQuery(name)
+    const fetching = useGetProductsByCategoryQuery(String(name))
 
     useEffect(() => {
         setTotal(fetching.data?.total || 0)
@@ -50,7 +50,7 @@ const Category: FC = () => {
                     </h2>
                 ) : fetching.isLoading ? (
                     <>
-                        <Skeleton.Input active style={{marginBottom: '30px'}}/>
+                        <Skeleton.Input active style={{ marginBottom: '30px' }} />
                         <div className={styles['products__wrapper']}>
                             <ProductCard />
                             <ProductCard />

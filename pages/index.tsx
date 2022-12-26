@@ -6,7 +6,6 @@ import LiveAuction from '../components/LiveAuction';
 import TopCollection from '../components/TopCollection';
 import Why from '../components/Why';
 
-
 const App: React.FC = () => {
 
   return (

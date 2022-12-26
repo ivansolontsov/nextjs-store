@@ -7,14 +7,16 @@ import { Button } from 'antd'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 
-type Props = {}
+type Props = {
+}
 
-const Details = (props: Props) => {
+
+const Details: React.FC<Props> = ({ }) => {
   const router = useRouter()
   const { id } = router.query
-  const fetching = useGetProductByIdQuery(Number(id));
   const { addItem } = useActions() // ВЫЗЫВАЕМ ЭКШН ДОБАВИТЬ В КОРЗИНУ
   const { cart } = useTypedSelector(state => state) // ВЫЗЫВАЕМ СЕЛЕКТОР СТОРА
+  const fetching = useGetProductByIdQuery(Number(id));
   const isAlreadyInCart = cart.some(el => el.id === Number(id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
 
   return (

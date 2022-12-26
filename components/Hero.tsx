@@ -17,14 +17,14 @@ const Hero = (props: Props) => {
     const { data, isLoading, error } = useGetCategoriesQuery();
 
     return (
-        <section className={styles['hero']}>
+        <section className={`${styles['hero']}`} >
             <div className={styles['hero__info']}>
                 <div className={styles['hero__info-header']}>
                     <h1 className={styles['hero__title']}>
                         Next Js <span>Pet Project</span>
                     </h1>
                     <div className={styles['hero__line-wrapper']}>
-                        <Image src={line} fill alt='line' style={{ objectFit: 'cover' }} />
+                        <Image src={line} fill alt='line' sizes='(max-width: 1600px) 427px' style={{ objectFit: 'cover' }} />
                     </div>
                 </div>
                 <div className={styles['hero__subtitle']}>
@@ -60,10 +60,10 @@ const Hero = (props: Props) => {
             </div>
             <div className={styles['hero__cards']}>
                 <div className={styles['hero__cards-print']}>
-                    <Image src={exclusiveImg} fill alt={'Exclusive'} style={{ objectFit: 'cover' }} />
+                    <Image src={exclusiveImg} fill alt={'Exclusive'} sizes='(max-width: 1600px) 113px' style={{ objectFit: 'cover' }} />
                 </div>
                 <div className={styles['hero__cards-spiral']}>
-                    <Image src={bgLine} fill alt={'Spiral'} />
+                    <Image src={bgLine} priority={true} width={711} height={571} alt={'Spiral'} sizes='(max-width: 1600px) 514px' />
                 </div>
                 <ProductCard />
                 <ProductCard rotated={true} />

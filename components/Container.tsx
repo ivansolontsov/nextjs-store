@@ -15,13 +15,13 @@ type Props = {
 const Container: React.FC<Props> = ({ children }) => {
     return (
         <>
+            
             <div className={`container ${inter.className}`}>
                 <Header />
                 {children}
             </div>
             <Footer />
         </>
-
     )
 }
 

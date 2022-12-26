@@ -10,7 +10,7 @@ type Props = {
 
 }
 
-const Cart: React.FC<Props> = () => {
+const Cart: React.FC<Props> = ({}) => {
     const { removeItem } = useActions()
     const { cart } = useTypedSelector(state => state)
     const { cartModal } = useTypedSelector(state => state)
@@ -20,7 +20,7 @@ const Cart: React.FC<Props> = () => {
         <>
             <Badge count={cart.length} offset={[-1, 0]} size={'small'}>
                 <Button
-                    onClick={openModal}
+                    onClick={() => openModal()}
                     size='large'
                     type="ghost"
                     icon={
@@ -32,7 +32,7 @@ const Cart: React.FC<Props> = () => {
                 title="Shopping Cart"
                 placement='right'
                 closable={true}
-                onClose={closeModal}
+                onClose={() => closeModal()}
                 open={cartModal.isOpen}
                 style={{
                     background: 'rgb(0 0 0 / 62%)',
