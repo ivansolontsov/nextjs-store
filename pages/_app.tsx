@@ -14,7 +14,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <ConfigProvider theme={{
-        "token": { "borderRadius": 8 },
+        "token": {
+          "borderRadius": 8,
+          "colorPrimary": "#15bffd",
+          "wireframe": true,
+        },
         algorithm: theme.darkAlgorithm,
       }}>
         <PersistGate persistor={persistor}>

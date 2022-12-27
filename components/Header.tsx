@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { navRoutes } from '../utils/routes'
 import Image from 'next/image';
 import logo from '../public/image/logo.svg'
 import Link from 'next/link';
@@ -26,7 +27,9 @@ const Header: React.FC = () => {
             <div className="header__left-side">
                 <Link href='/'><Image src={logo} width={247} height={48} alt={'logo'} /></Link>
                 <nav className='header__nav'>
-                    <Link href='/catalog' className='header__nav-link'>Catalog</Link>
+                    {navRoutes.map((route, index) => (
+                        <Link key={index} href={route.path} className='header__nav-link'>{route.name}</Link>
+                    ))}
                 </nav>
             </div>
             <div className="header__buttons">

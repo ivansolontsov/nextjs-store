@@ -2,35 +2,50 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/Cart.module.css'
 import { Button, Badge, Drawer, } from 'antd';
-import { ShoppingOutlined, CloseCircleFilled } from '@ant-design/icons';
+import { ShoppingOutlined, CloseCircleFilled, PlusOutlined, MinusOutlined } from '@ant-design/icons';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useActions } from '../hooks/useActions';
+import { ICart } from '../store/cart/cartType';
 
 type Props = {
 
 }
 
-const Cart: React.FC<Props> = ({}) => {
-    const { removeItem } = useActions()
+const Cart: React.FC<Props> = ({ }) => {
+    const { removeItem, incrementCount, decrementCount } = useActions()
     const { cart } = useTypedSelector(state => state)
     const { cartModal } = useTypedSelector(state => state)
     const { openModal, closeModal } = useActions()
 
+    const handlePlus = (item: ICart) => {
+        incrementCount({ id: item.product.id })
+    }
+
+    const handleMinus = (item: ICart) => {
+        if (item.amount === 1) {
+            removeItem({ id: item.product.id })
+        } else {
+            decrementCount({ id: item.product.id })
+        }
+
+    }
+
     return (
         <>
-            <Badge count={cart.length} offset={[-1, 0]} size={'small'}>
-                <Button
-                    onClick={() => openModal()}
-                    size='large'
-                    type="ghost"
-                    icon={
-                        <ShoppingOutlined style={{ fontSize: '24px' }} />
-                    }
-                    className='header__cart-button' />
-            </Badge>
+            {/* <Badge count={cart.length} offset={[-1, 0]} size={'small'}> */}
+            <Button
+                onClick={() => openModal()}
+                size='large'
+                type="ghost"
+                icon={
+                    <ShoppingOutlined style={{ fontSize: '24px' }} />
+                }
+                className='header__cart-button' />
+            {/* </Badge> */}
             <Drawer
                 title="Shopping Cart"
                 placement='right'
+                width={500}
                 closable={true}
                 onClose={() => closeModal()}
                 open={cartModal.isOpen}
@@ -43,23 +58,28 @@ const Cart: React.FC<Props> = ({}) => {
                 {cart.length > 0 && (
                     <div className={styles['cart']}>
                         {cart.map((e) => (
-                            <div key={e.id} className={styles['cart__item']}>
+                            <div key={e.product.id} className={styles['cart__item']}>
                                 <div className={styles['cart__item-left']}>
                                     <div className={styles['cart__item-image']}>
-                                        <Image src={e.thumbnail} alt={e.title} width={50} height={50} style={{ objectFit: 'cover' }} />
+                                        <Image src={e.product.thumbnail} alt={e.product.title} width={50} height={50} style={{ objectFit: 'cover' }} />
                                     </div>
                                     <div className={styles['cart__item-info']}>
-                                        <h4 className={styles['cart__item-name']}>{e.title}</h4>
-                                        <p className={styles['cart__item-price']}>${e.price}</p>
+                                        <h4 className={styles['cart__item-name']}>{e.product.title}</h4>
+                                        <p className={styles['cart__item-price']}>${e.product.price}</p>
                                     </div>
                                 </div>
-                                <div className={styles['cart__remove']}>
-                                    <Button onClick={() => removeItem({ id: e.id })} type="ghost" size='large' shape="circle" icon={<CloseCircleFilled />} />
+                                <div className={styles['cart__amount']}>
+                                    <Button onClick={() => handleMinus(e)} type="ghost" size='middle' shape="circle" style={{ fontSize: '8px' }} icon={<MinusOutlined />} />
+                                    <span>
+                                        {e.amount}
+                                    </span>
+                                    <Button onClick={() => handlePlus(e)} type="ghost" size='middle' shape="circle" style={{ fontSize: '8px' }} icon={<PlusOutlined />} />
                                 </div>
+                                <Button className={styles['cart__remove']} onClick={() => removeItem({ id: e.product.id })} type="ghost" size='large' shape="circle" icon={<CloseCircleFilled />} />
                             </div>
                         ))}
                         <div className={styles['cart__total']}>
-                            ${cart.reduce((total, amount) => total + amount.price, 0)}
+                            ${cart.reduce((summary, cartItem) => summary + (cartItem.product.price * cartItem.amount), 0)}
                         </div>
                     </div>
                 )}

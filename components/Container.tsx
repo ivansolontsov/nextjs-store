@@ -20,7 +20,7 @@ const Container: React.FC<Props> = ({ children }) => {
                 <Header />
                 {children}
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }

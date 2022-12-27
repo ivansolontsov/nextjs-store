@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { ProductApi } from './products/ProductApi'
 import { CategoryApi } from './categories/categoryApi'
 import { cartReducer } from './cart/cartSlice'
-import { cartModal, cartModalReducer } from './cart/cartModal'
+import { cartModalReducer } from './cart/cartModal'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import storage from 'redux-persist/lib/storage'
 import {
@@ -15,6 +15,7 @@ import {
   REGISTER,
 } from 'redux-persist'
 import { combineReducers } from '@reduxjs/toolkit'
+import { favReducer } from './favorites/favoritesSlice'
 
 const persistConfig = {
   key: 'root',
@@ -25,6 +26,7 @@ const persistConfig = {
 const reducer = combineReducers({
   cart: cartReducer,
   cartModal: cartModalReducer,
+  favorites: favReducer,
   [ProductApi.reducerPath]: ProductApi.reducer,
   [CategoryApi.reducerPath]: CategoryApi.reducer,
 })
