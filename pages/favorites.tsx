@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
-import styles from '../styles/favorites.module.css'
+import styles from '../styles/Favorites.module.css'
 import { FC } from 'react'
 import { useTypedSelector } from '../hooks/useTypedSelector'
 import { useActions } from '../hooks/useActions'
