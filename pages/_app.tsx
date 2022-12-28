@@ -17,7 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
         "token": {
           "borderRadius": 8,
           "colorPrimary": "#15bffd",
-          "wireframe": true,
         },
         algorithm: theme.darkAlgorithm,
       }}>

@@ -1,0 +1,50 @@
+.catbar {
+    margin: 0px;
+    padding: 0px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: rgb(9 11 43 / 44%);
+    border: 1px solid rgb(33 150 243 / 10%);
+    position: sticky;
+    top: 92px;
+    backdrop-filter: blur(8px);
+    transition: all .3s;
+}
+
+.catbar li {
+    list-style: none;
+    display: flex;
+}
+
+.catbar__link,
+.catbar li a {
+    font-family: 'Clash Display';
+    display: flex;
+    width: 100%;
+    font-size: 16px;
+    padding: 16px;
+    color: white;
+    text-transform: capitalize;
+    border-bottom: 1px solid #12204c7a;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.catbar li:last-child {
+    border-bottom: none;
+}
+
+
+.catbar__link:hover {
+    display: flex;
+    width: 100%;
+    font-size: 16px;
+    padding: 16px;
+    color: white;
+    background-color: rgb(8 12 36);
+    text-transform: capitalize;
+}
+
+.catbar__link_active {
+    background-color: #18bffd;
+}

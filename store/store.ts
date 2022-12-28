@@ -16,17 +16,19 @@ import {
 } from 'redux-persist'
 import { combineReducers } from '@reduxjs/toolkit'
 import { favReducer } from './favorites/favoritesSlice'
+import { catReducer } from './categories/categorySlice'
 
 const persistConfig = {
   key: 'root',
   storage: storage,
-  blacklist: ['apiProductSlice'],
+  blacklist: ['apiProductSlice'], // need to fix
 }
 
 const reducer = combineReducers({
   cart: cartReducer,
   cartModal: cartModalReducer,
   favorites: favReducer,
+  category: catReducer,
   [ProductApi.reducerPath]: ProductApi.reducer,
   [CategoryApi.reducerPath]: CategoryApi.reducer,
 })

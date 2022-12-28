@@ -1,9 +1,8 @@
 import React from 'react'
 import styles from '../styles/Hero.module.css'
 import Image from 'next/image'
-import line from '../public/image/line.png'
+import line from '../public/image/lightning.svg'
 import arrowRight from '../public/image/icons/arrow-right.svg'
-import bgLine from '../public/image/line.svg'
 import exclusiveImg from '../public/image/exclusive.svg'
 import Link from 'next/link'
 import ProductCard from './ProductCard'
@@ -24,7 +23,7 @@ const Hero = (props: Props) => {
                         Next Js <span>Pet Project</span>
                     </h1>
                     <div className={styles['hero__line-wrapper']}>
-                        <Image src={line} fill alt='line' sizes='(max-width: 1600px) 427px' style={{ objectFit: 'cover' }} />
+                        <Image src={line} fill alt='line' sizes='(max-width: 1600px) 427px' style={{ objectFit: 'contain' }} />
                     </div>
                 </div>
                 <div className={styles['hero__subtitle']}>
@@ -59,12 +58,6 @@ const Hero = (props: Props) => {
                 </div>
             </div>
             <div className={styles['hero__cards']}>
-                {/* <div className={styles['hero__cards-print']}>
-                    <Image src={exclusiveImg} fill alt={'Exclusive'} sizes='(max-width: 1600px) 113px' style={{ objectFit: 'cover' }} />
-                </div> */}
-                {/* <div className={styles['hero__cards-spiral']}>
-                    <Image src={bgLine} priority={true} fill alt={'Spiral'} sizes='(max-width: 1600px) 514px' style={{ objectFit: 'cover' }} />
-                </div> */}
                 <ProductCard />
                 <ProductCard rotated={true} />
             </div>

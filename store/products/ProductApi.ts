@@ -6,12 +6,8 @@ export const ProductApi = createApi({
     tagTypes: ['Product'],
     baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/' }),
     endpoints: (build) => ({
-        getProductsByCategory: build.query<IRootObject, string>({
-            query: (name) => `products/category/${name}`,
-            providesTags: ['Product'],
-        }),
-        getProducts: build.query<IRootObject, number>({
-            query: (limit = 20) => `products?limit=${limit}`,
+        getProductsByParameters: build.query<IRootObject, [string, number]>({
+            query: ([name, limit]) => `products${name ? '/category/' + name : ''}?limit=${limit}`,
             providesTags: ['Product'],
         }),
         getProductById: build.query<IProduct, number>({
@@ -21,4 +17,4 @@ export const ProductApi = createApi({
     })
 })
 
-export const { useGetProductsByCategoryQuery, useGetProductsQuery, useGetProductByIdQuery } = ProductApi
+export const { useGetProductsByParametersQuery, useGetProductByIdQuery } = ProductApi

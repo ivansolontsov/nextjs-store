@@ -2,10 +2,11 @@
 
 .card {
     background-image: url('../public/image/card.svg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    width: 300px;
-    height: 409px;
+    min-width: 293px;
+    height: 400px;
+    overflow: hidden;
     padding: 16px;
     backdrop-filter: blur(3px);
     overflow: hidden;
@@ -106,6 +107,7 @@
 
 .card__large-button:hover {
     background-color: transparent !important;
+    color: #fff;
 }
 
 .card__bottom {
