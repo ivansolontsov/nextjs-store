@@ -8,7 +8,7 @@ type Props = {}
 
 const LiveAuction = (props: Props) => {
 
-  const { data, isLoading, error } = useGetProductsByParametersQuery(['', 3])
+  const { data, isLoading, error } = useGetProductsByParametersQuery(['', 6])
 
   return (
     <section className={styles['auction']}>
@@ -25,10 +25,8 @@ const LiveAuction = (props: Props) => {
               </>
             )
             : data
-              ? data.products.slice(0, 3).map((item, index) => (
-                <>
-                  <ProductCard key={index} productInfo={item} isBig={true} />
-                </>
+              ? data.products.slice(3, 6).map((item, index) => (
+                <ProductCard key={index} productInfo={item} isBig={true} />
               ))
               : null
         }

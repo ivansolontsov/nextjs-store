@@ -1,7 +1,7 @@
 import styles from '../../styles/Detail.module.css'
 import React, { FC, useEffect } from 'react'
 import Image from 'next/image'
-import { useGetProductByIdQuery } from '../../store/products/ProductApi'
+import { ProductApi, useGetProductByIdQuery } from '../../store/products/ProductApi'
 import { useRouter } from 'next/router'
 import { Button, Tooltip, Col, Row, notification } from 'antd'
 import { useActions } from '../../hooks/useActions'
@@ -9,7 +9,10 @@ import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { IProduct } from '../../store/products/productTypes'
 
+import { makeStore, wrapper } from '../../store/store'
+
 type Props = {
+
 }
 
 type NotificationType = 'success' | 'info' | 'warning' | 'error';
@@ -18,12 +21,21 @@ interface IImage {
   link: string,
 }
 
+export async function getStaticPaths() {
+  const store = makeStore();
+  const result = await store.dispatch(ProductApi.endpoints.getAllProducts.initiate());
+
+  return {
+    paths: result.data?.products
+      .map((prod) => `/products/${prod.id}`),
+    fallback: false,
+  };
+}
 
 const Details: React.FC<Props> = ({ }) => {
   const router = useRouter()
   const { id } = router.query
   const fetching = useGetProductByIdQuery(Number(id));
-
   const { addItem, openModal, addToFavorites, removeFromFavorites } = useActions()
   const { cart, favorites } = useTypedSelector(state => state)
 
@@ -34,7 +46,7 @@ const Details: React.FC<Props> = ({ }) => {
 
   useEffect(() => {
     setMainImage({ link: fetching.data?.thumbnail || '' })
-  }, [fetching.isSuccess])
+  }, [fetching.isSuccess, fetching.isLoading, fetching])
 
   const handleGallery = (image: string) => {
     setMainImage({ link: image })
@@ -186,3 +198,17 @@ const Details: React.FC<Props> = ({ }) => {
 }
 
 export default Details
+
+
+export const getStaticProps = wrapper.getStaticProps(
+  (store) => async (context) => {
+    const id = context.params?.id;
+
+    store.dispatch(ProductApi.endpoints.getProductById.initiate(Number(id)));
+    await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
+
+    return {
+      props: {},
+    };
+  }
+);

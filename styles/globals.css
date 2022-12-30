@@ -25,20 +25,8 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
     z-index: 2;
     gap: 40px;
-    top: 0px;
-    transition: background-color .3s, padding .3s;
-}
-
-.header__scrolled {
-    background-color: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(7px);
-    border-radius: 0px 0px 16px 16px;
-    padding: 15px 30px 20px 30px;
-    border: 1px solid #ffffff24;
-    border-top: none;
 }
 
 .header__nav {

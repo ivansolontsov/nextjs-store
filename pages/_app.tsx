@@ -8,9 +8,14 @@ import { ConfigProvider, theme } from 'antd';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { persistStore } from 'redux-persist';
 
+
+// SSR
+const { wrapper } = require("../store/store");
+// SSR
+
 let persistor = persistStore(store)
 
-export default function App({ Component, pageProps }: AppProps) {
+export function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <ConfigProvider theme={{
@@ -29,3 +34,6 @@ export default function App({ Component, pageProps }: AppProps) {
     </Provider>
   )
 }
+
+
+export default wrapper.withRedux(App);

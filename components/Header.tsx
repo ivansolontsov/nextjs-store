@@ -8,26 +8,8 @@ import SearchButton from './actionButtons/SearchButton';
 import Search from './Search';
 
 const Header: React.FC = () => {
-
-    const [scrolled, setScrolled] = React.useState(false)
-
-    const listenScrollEvent = () => {
-        if (window.scrollY >= 1) {
-            setScrolled(true)
-        } else {
-            setScrolled(false)
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener('scroll', listenScrollEvent)
-    }, [])
-
-
-
-
     return (
-        <header className={`header ${scrolled ? 'header__scrolled' : ''}`}>
+        <header className={`header`}>
             <div className="header__left-side">
                 <Link href='/'><Image priority={true} src={logo} width={247} height={48} alt={'logo'} /></Link>
                 <nav className='header__nav'>

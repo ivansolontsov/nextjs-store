@@ -5,6 +5,7 @@ import { cartReducer } from './cart/cartSlice'
 import { cartModalReducer } from './cart/cartModal'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import storage from 'redux-persist/lib/storage'
+
 import {
   persistReducer,
   FLUSH,
@@ -50,4 +51,25 @@ export const store = configureStore({
 })
 
 setupListeners(store.dispatch)
+
 export type TypeRootState = ReturnType<typeof store.getState>
+
+// NEW STORE FOR SSR
+
+
+//SSR
+import { createWrapper } from "next-redux-wrapper";
+
+export const makeStore = () =>
+  configureStore({
+    reducer: {
+      [ProductApi.reducerPath]: ProductApi.reducer,
+    },
+    middleware: (gDM) => gDM().concat(ProductApi.middleware),
+  });
+
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
+
+export const wrapper = createWrapper<AppStore>(makeStore, { debug: true });

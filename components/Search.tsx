@@ -81,7 +81,7 @@ const Search: React.FC<Props> = ({ }) => {
 
     React.useEffect(() => {
         setOptions(data ? searchResult(data) : [])
-    }, [isLoading, data, error])
+    }, [isLoading, data])
 
 
     // DEBOUNCER START

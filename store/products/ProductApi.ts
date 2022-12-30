@@ -1,10 +1,16 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IProduct, IRootObject } from "./productTypes";
+import { HYDRATE } from 'next-redux-wrapper'
 
 export const ProductApi = createApi({
     reducerPath: 'productApi',
     tagTypes: ['Product'],
     baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/' }),
+    extractRehydrationInfo(action, { reducerPath }) {
+        if (action.type === HYDRATE) {
+            return action.payload[reducerPath]
+        }
+    },
     endpoints: (build) => ({
         getProductsByParameters: build.query<IRootObject, [string, number]>({
             query: ([name, limit]) => `products${name ? '/category/' + name : ''}?limit=${limit}`,
@@ -14,7 +20,11 @@ export const ProductApi = createApi({
             query: (id) => `products/${id}`,
             providesTags: ['Product'],
         }),
+        getAllProducts: build.query<IRootObject, void>({
+            query: () => `products`,
+            providesTags: ['Product'],
+        }),
     })
 })
 
-export const { useGetProductsByParametersQuery, useGetProductByIdQuery } = ProductApi
+export const { useGetProductsByParametersQuery, useGetProductByIdQuery, useGetAllProductsQuery } = ProductApi
