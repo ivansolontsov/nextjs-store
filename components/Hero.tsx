@@ -3,17 +3,19 @@ import styles from '../styles/Hero.module.css'
 import Image from 'next/image'
 import line from '../public/image/lightning.svg'
 import arrowRight from '../public/image/icons/arrow-right.svg'
-import exclusiveImg from '../public/image/exclusive.svg'
 import Link from 'next/link'
-import ProductCard from './ProductCard'
+import ProductCard from './productCards/ProductCard'
 import { useGetCategoriesQuery } from '../store/categories/categoryApi'
 import { Skeleton } from 'antd'
+import { CATALOG_ROUTE, FAVORITES_ROUTE } from '../utils/consts'
+import { useGetProductsByParametersQuery } from '../store/products/ProductApi'
 
 type Props = {}
 
 const Hero = (props: Props) => {
 
-    const { data, isLoading, error } = useGetCategoriesQuery();
+    const fetchCategories = useGetCategoriesQuery();
+    const fetchProducts = useGetProductsByParametersQuery(['', 2])
 
     return (
         <section className={`${styles['hero']}`} >
@@ -30,27 +32,27 @@ const Hero = (props: Props) => {
                     React, Next.js, Redux Toolkit, Antd, TypeScript
                 </div>
                 <div className={styles['hero__button-group']}>
-                    <Link href='/catalog' className={styles['hero__button_primary']}>Catalog</Link>
-                    <Link href='/' className={styles['hero__button_secondary']}>Your Wish List <Image src={arrowRight} width={28} alt='Arrow Right' /></Link>
+                    <Link href={CATALOG_ROUTE} className={styles['hero__button_primary']}>Catalog</Link>
+                    <Link href={FAVORITES_ROUTE} className={styles['hero__button_secondary']}>Your Wish List <Image src={arrowRight} width={28} alt='Arrow Right' /></Link>
                 </div>
 
                 <div className={styles['hero__categories']}>
                     <h2 className={styles['hero__categories-title']}>
                         Categories that may be useful
                     </h2>
-                    {error ? (
+                    {fetchCategories.error ? (
                         <>
                             Error
                         </>
-                    ) : isLoading ? (
+                    ) : fetchCategories.isLoading ? (
                         <ul className={styles['hero__categories-list']}>
                             <Skeleton.Button active size='small' shape='round' block={true} />
                         </ul>
-                    ) : data ? (
+                    ) : fetchCategories.data ? (
                         <div className={styles['hero__categories-list']}>
                             {
-                                data.slice(0, 6).map((name, index) => (
-                                    <Link key={index} href={`categories/${name}`} className={styles['hero__categories-list-item']}>{name}</Link>
+                                fetchCategories.data.slice(0, 6).map((name, index) => (
+                                    <Link key={index} href={`${CATALOG_ROUTE}/${name}`} className={styles['hero__categories-list-item']}>{name}</Link>
                                 ))
                             }
                         </div>
@@ -58,8 +60,16 @@ const Hero = (props: Props) => {
                 </div>
             </div>
             <div className={styles['hero__cards']}>
-                <ProductCard />
-                <ProductCard rotated={true} />
+                {fetchProducts.isLoading
+                    ? (
+                        <>
+                            <ProductCard />
+                            <ProductCard rotated={true} />
+                        </>
+                    )
+                    : fetchProducts ? fetchProducts.data?.products.slice(0, 2).map((item, index) => (
+                        <ProductCard productInfo={item} key={index} rotated={index > 0 ? true : false} />
+                    )) : null}
             </div>
         </section >
     )

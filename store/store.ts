@@ -17,11 +17,13 @@ import {
 import { combineReducers } from '@reduxjs/toolkit'
 import { favReducer } from './favorites/favoritesSlice'
 import { catReducer } from './categories/categorySlice'
+import { searchOpenReducer } from './search/searchOpen'
+import { SearchApi } from './search/searchApi'
 
 const persistConfig = {
   key: 'root',
   storage: storage,
-  blacklist: ['apiProductSlice'], // need to fix
+  blacklist: ['productApi', 'categoryApi', 'searchOpen', 'searchApi'],
 }
 
 const reducer = combineReducers({
@@ -29,8 +31,10 @@ const reducer = combineReducers({
   cartModal: cartModalReducer,
   favorites: favReducer,
   category: catReducer,
+  searchOpen: searchOpenReducer,
   [ProductApi.reducerPath]: ProductApi.reducer,
   [CategoryApi.reducerPath]: CategoryApi.reducer,
+  [SearchApi.reducerPath]: SearchApi.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer)
@@ -42,7 +46,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(ProductApi.middleware, CategoryApi.middleware),
+    }).concat(ProductApi.middleware, CategoryApi.middleware, SearchApi.middleware),
 })
 
 setupListeners(store.dispatch)

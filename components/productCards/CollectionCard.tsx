@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import iphImg from '../public/image/iphone.jpeg'
-import styles from '../styles/Collection.module.css'
+import iphImg from '../../public/image/iphone.jpeg'
+import styles from '../../styles/Collection.module.css'
 
 
 type Props = {}

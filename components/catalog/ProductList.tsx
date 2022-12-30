@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../styles/ProductList.module.css'
-import ProductCard from '../ProductCard'
+import ProductCard from '../productCards/ProductCard'
 import { IProduct } from '../../store/products/productTypes'
 
 type Props = {

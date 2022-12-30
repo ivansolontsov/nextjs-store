@@ -11,6 +11,7 @@ import { IProduct } from '../../store/products/productTypes'
 
 type Props = {
 }
+
 type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
 interface IImage {
@@ -38,6 +39,7 @@ const Details: React.FC<Props> = ({ }) => {
   const handleGallery = (image: string) => {
     setMainImage({ link: image })
   }
+
 
   const [api, contextHolder] = notification.useNotification();
   const openNotificationWithIcon = (type: NotificationType) => {
@@ -81,15 +83,17 @@ const Details: React.FC<Props> = ({ }) => {
             <Col span={6}>
               <div className={styles['detail__image']}>
                 <Image
-                  src={mainImage.link}
+                  src={mainImage.link || fetching.data.thumbnail}
                   alt={fetching.data.title}
+                  priority={false}
                   fill
                   sizes='(max-width: 1600px) 500px'
                   style={{ objectFit: 'cover' }}
                 />
                 <Image
-                  src={mainImage.link}
+                  src={mainImage.link || fetching.data.thumbnail}
                   alt={fetching.data.title}
+                  priority={false}
                   fill
                   sizes='(max-width: 1600px) 500px'
                   style={{ objectFit: 'cover' }}
@@ -99,7 +103,7 @@ const Details: React.FC<Props> = ({ }) => {
               <div className={styles['details__gallery-items']}>
                 {fetching.data.images.map((image, index) => (
                   <div key={index} className={styles['details__gallery-item']} onMouseEnter={() => handleGallery(image)}>
-                    <Image src={image} fill alt={fetching.data.title} />
+                    <Image priority={false} src={image} sizes='(max-width: 1600px) 50px' fill alt={fetching.data.title} style={{ objectFit: 'cover' }} />
                   </div>
                 ))}
               </div>

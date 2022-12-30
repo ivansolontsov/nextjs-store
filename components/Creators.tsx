@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'antd'
-import CreatorCard from './CreatorCard'
+import CreatorCard from './productCards/CreatorCard'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Creators.module.css'
 

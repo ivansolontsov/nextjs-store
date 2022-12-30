@@ -1,16 +1,17 @@
 import Image from 'next/image'
 import React from 'react'
-import styles from '../styles/Card.module.css'
-import iphImg from '../public/image/iphone.jpeg'
+import styles from '../../styles/Card.module.css'
+import iphImg from '../../public/image/iphone.jpeg'
 import { Button, Tooltip } from 'antd'
 import { Poppins, Inter } from '@next/font/google'
-import { IProduct } from '../store/products/productTypes';
+import { IProduct } from '../../store/products/productTypes';
 import { Skeleton } from 'antd';
 import { LoadingOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { Spin } from 'antd';
-import { useActions } from '../hooks/useActions';
-import { useTypedSelector } from '../hooks/useTypedSelector';
+import { useActions } from '../../hooks/useActions';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import Link from 'next/link';
+import { PRODUCT_ROUTE } from '../../utils/consts'
 
 const poppins = Poppins({ weight: ['500', '600'], subsets: [] })
 const inter = Inter({ weight: ['600'], subsets: [] })
@@ -44,7 +45,7 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
     const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
     if (!productInfo) {
         return (
-            <div style={{opacity: '.3', filter: 'grayscale(1)'}} className={`${styles['card']} ${poppins.className} ${isBig ? styles['card__large'] : ''} ${rotated ? styles['card__rotated'] : ''}`}>
+            <div style={{ filter: 'grayscale(1)' }} className={`${styles['card']} ${poppins.className} ${isBig ? styles['card__large'] : ''} ${rotated ? styles['card__rotated'] : ''}`}>
                 <Skeleton.Image active />
                 <Skeleton active />
                 <Spin indicator={antIcon} />
@@ -61,7 +62,7 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
                     <small className={styles['card__header-product-price']}><span>$</span>{productInfo.price}</small>
                 </div>
                 {!isBig && (
-                    <Link href={`/products/${productInfo.id}`} className={`${styles['card__large-button']} ${inter.className}`}>
+                    <Link href={`${PRODUCT_ROUTE}/${productInfo.id}`} className={`${styles['card__large-button']} ${inter.className}`}>
                         See More
                     </Link>
                 )}

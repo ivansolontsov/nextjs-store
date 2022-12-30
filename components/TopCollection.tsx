@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import React from 'react'
 import styles from '../styles/Collection.module.css'
-import CollectionCard from './CollectionCard'
+import CollectionCard from './productCards/CollectionCard'
 
 import { Inter } from '@next/font/google'
 const inter = Inter({ weight: ['500'], subsets: [] })

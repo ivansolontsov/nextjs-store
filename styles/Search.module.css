@@ -1,0 +1,24 @@
+.search {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: width 1s ease-out, opacity .3s, visibility .3s;
+    width: 100%;
+}
+
+.search__input {
+    width: 0px !important;
+    transition: width 1s;
+    position: relative;
+}
+
+.search__input_open {
+    width: 100% !important;
+}
+
+.search__input_visible {
+    width: 100%;
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}

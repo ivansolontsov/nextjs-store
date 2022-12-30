@@ -1,10 +1,7 @@
 .catbar {
     margin: 0px;
     padding: 0px;
-    border-radius: 16px;
-    overflow: hidden;
     background-color: rgb(9 11 43 / 44%);
-    border: 1px solid rgb(33 150 243 / 10%);
     position: sticky;
     top: 92px;
     backdrop-filter: blur(8px);

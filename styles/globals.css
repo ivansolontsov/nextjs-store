@@ -27,6 +27,7 @@ body {
     align-items: center;
     position: sticky;
     z-index: 2;
+    gap: 40px;
     top: 0px;
     transition: background-color .3s, padding .3s;
 }
@@ -63,7 +64,7 @@ body {
 
 .header__buttons {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     height: 100%;
 }
 

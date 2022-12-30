@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import styles from '../styles/Cart.module.css'
-import { Button, Badge, Drawer, } from 'antd';
-import { ShoppingOutlined, CloseCircleFilled, PlusOutlined, MinusOutlined } from '@ant-design/icons';
-import { useTypedSelector } from '../hooks/useTypedSelector';
-import { useActions } from '../hooks/useActions';
-import { ICart } from '../store/cart/cartType';
+import styles from '../../styles/Cart.module.css'
+import { Button, Drawer, } from 'antd';
+import { CloseCircleFilled, PlusOutlined, MinusOutlined } from '@ant-design/icons';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useActions } from '../../hooks/useActions';
+import { ICart } from '../../store/cart/cartType';
 
 type Props = {
 
@@ -15,7 +15,7 @@ const Cart: React.FC<Props> = ({ }) => {
     const { removeItem, incrementCount, decrementCount } = useActions()
     const { cart } = useTypedSelector(state => state)
     const { cartModal } = useTypedSelector(state => state)
-    const { openModal, closeModal } = useActions()
+    const { closeModal } = useActions()
 
     const handlePlus = (item: ICart) => {
         incrementCount({ id: item.product.id })
@@ -32,16 +32,6 @@ const Cart: React.FC<Props> = ({ }) => {
 
     return (
         <>
-            {/* <Badge count={cart.length} offset={[-1, 0]} size={'small'}> */}
-            <Button
-                onClick={() => openModal()}
-                size='large'
-                type="ghost"
-                icon={
-                    <ShoppingOutlined style={{ fontSize: '24px' }} />
-                }
-                className='header__cart-button' />
-            {/* </Badge> */}
             <Drawer
                 title="Shopping Cart"
                 placement='right'
