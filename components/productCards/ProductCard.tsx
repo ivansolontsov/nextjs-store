@@ -29,7 +29,7 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
     const { favorites } = useTypedSelector(state => state)
     const { cart } = useTypedSelector(state => state) // ВЫЗЫВАЕМ СЕЛЕКТОР СТОРА
     const isAlreadyInCart = cart.some(el => el.product.id === productInfo?.id) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
-    const isAlreadyInFav = favorites.some(el => el.id === Number(productInfo?.id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В FAVORITES
+    const isAlreadyInFav = favorites.some(el => el.product.id === Number(productInfo?.id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В FAVORITES
 
     // ПЛЕЙСХОЛДЕР ДЛЯ АВАТАРОК В БОЛЬШОЙ КАРТОЧКЕ
     let orders: number[];
@@ -72,7 +72,7 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
                         type='primary'
                         className={`${styles['card__large-button']} ${inter.className}`}
                         onClick={() => {
-                            addItem({ product: productInfo, amount: 1 })
+                            addItem(productInfo)
                         }}
                     >
                         {isAlreadyInCart ? 'Product Added' : 'Add In Cart'}

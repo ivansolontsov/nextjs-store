@@ -16,7 +16,7 @@ export const ProductApi = createApi({
             query: ([name, limit]) => `products${name ? '/category/' + name : ''}?limit=${limit}`,
             providesTags: ['Product'],
         }),
-        getProductById: build.query<IProduct, number>({
+        getProductById: build.query<IProduct, string | string[]>({
             query: (id) => `products/${id}`,
             providesTags: ['Product'],
         }),

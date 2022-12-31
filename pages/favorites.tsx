@@ -23,9 +23,9 @@ const Category: FC = () => {
                 <h1 className="section__title">Favorites</h1>
                 <div className={styles['favorites__cards-list']}>
                     {
-                        favorites.map((product) => (
-                            <div key={product.id} className={styles['favorites__card']}>
-                                {product.title}
+                        favorites.map((i) => (
+                            <div key={i.product.id} className={styles['favorites__card']}>
+                                {i.product.title}
                             </div>
                         ))
                     }
