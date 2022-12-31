@@ -21,7 +21,7 @@ export const ProductApi = createApi({
             providesTags: ['Product'],
         }),
         getAllProducts: build.query<IRootObject, void>({
-            query: () => `products`,
+            query: () => `products?limit=1000`,
             providesTags: ['Product'],
         }),
     })

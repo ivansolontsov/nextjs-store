@@ -9,7 +9,12 @@ import { Inter } from '@next/font/google'
 import { useRouter } from 'next/router'
 const inter = Inter({ weight: ['400'], subsets: ['latin'], style: ['normal'], })
 
-const Catalog: FC = () => {
+
+type Props = {
+
+}
+
+const Catalog: React.FC<Props> = ({ }) => {
   const [limit, setLimit] = React.useState(21);
   const [total, setTotal] = React.useState(0);
   const [disabled, setDisabled] = React.useState(true);

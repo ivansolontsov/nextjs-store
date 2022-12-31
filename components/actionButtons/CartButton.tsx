@@ -9,7 +9,7 @@ const CartButton = () => {
     const { openModal } = useActions()
 
     return (
-        <Badge count={cart.length} offset={[-1, 0]} size={'small'}>
+        
             <Button
                 onClick={() => openModal()}
                 size='large'
@@ -18,7 +18,8 @@ const CartButton = () => {
                     <ShoppingOutlined style={{ fontSize: '24px' }} />
                 }
                 className='header__cart-button' />
-        </Badge>
+        //         <Badge count={cart.length} offset={[-1, 0]} size={'small'}>
+        // </Badge>
     )
 }
 

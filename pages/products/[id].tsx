@@ -8,29 +8,15 @@ import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { IProduct } from '../../store/products/productTypes'
-
 import { makeStore, wrapper } from '../../store/store'
 
 type Props = {
-
 }
-
-type NotificationType = 'success' | 'info' | 'warning' | 'error';
-
 interface IImage {
   link: string,
 }
 
-export async function getStaticPaths() {
-  const store = makeStore();
-  const result = await store.dispatch(ProductApi.endpoints.getAllProducts.initiate());
-
-  return {
-    paths: result.data?.products
-      .map((prod) => `/products/${prod.id}`),
-    fallback: false,
-  };
-}
+type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
 const Details: React.FC<Props> = ({ }) => {
   const router = useRouter()
@@ -51,7 +37,6 @@ const Details: React.FC<Props> = ({ }) => {
   const handleGallery = (image: string) => {
     setMainImage({ link: image })
   }
-
 
   const [api, contextHolder] = notification.useNotification();
   const openNotificationWithIcon = (type: NotificationType) => {
@@ -200,10 +185,20 @@ const Details: React.FC<Props> = ({ }) => {
 export default Details
 
 
+export async function getStaticPaths() {
+  const store = makeStore();
+  const result = await store.dispatch(ProductApi.endpoints.getAllProducts.initiate());
+
+  return {
+    paths: result.data?.products
+      .map((prod) => `/products/${prod.id}`),
+    fallback: false,
+  };
+}
+
 export const getStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     const id = context.params?.id;
-
     store.dispatch(ProductApi.endpoints.getProductById.initiate(Number(id)));
     await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
 

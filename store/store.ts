@@ -64,8 +64,9 @@ export const makeStore = () =>
   configureStore({
     reducer: {
       [ProductApi.reducerPath]: ProductApi.reducer,
+      [CategoryApi.reducerPath]: CategoryApi.reducer,
     },
-    middleware: (gDM) => gDM().concat(ProductApi.middleware),
+    middleware: (gDM) => gDM().concat(ProductApi.middleware, CategoryApi.middleware),
   });
 
 export type AppStore = ReturnType<typeof makeStore>;
