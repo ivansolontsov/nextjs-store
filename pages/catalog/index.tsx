@@ -6,21 +6,18 @@ import CategoryBar from '../../components/catalog/CategoryBar'
 import ProductList from '../../components/catalog/ProductList'
 import { useGetProductsByParametersQuery } from '../../store/products/ProductApi'
 import { Inter } from '@next/font/google'
-import { useRouter } from 'next/router'
 const inter = Inter({ weight: ['400'], subsets: ['latin'], style: ['normal'], })
 
 
 type Props = {
-
+  categoryName: string
 }
 
-const Catalog: React.FC<Props> = ({ }) => {
+const Catalog: React.FC<Props> = ({ categoryName }) => {
   const [limit, setLimit] = React.useState(21);
   const [total, setTotal] = React.useState(0);
   const [disabled, setDisabled] = React.useState(true);
-  const { query } = useRouter()
-  const checkPage = () => query.name ? query.name : '' // если мы на странице категории, то передаем в запрос имя категории, если нет, то мы получим все товары
-  const { data, isLoading, isFetching } = useGetProductsByParametersQuery([String(checkPage()), limit]);
+  const { data, isLoading, isFetching } = useGetProductsByParametersQuery([categoryName || '', limit]);
 
   useEffect(() => {
     setTotal(data?.total || 0)
@@ -50,8 +47,8 @@ const Catalog: React.FC<Props> = ({ }) => {
           </Col>
           <Col span={18}>
             <h1 className="section__title" style={{ textAlign: 'left' }}>
-              {query.name
-                ? query.name
+              {categoryName
+                ? categoryName
                 : 'Catalog'
               }
             </h1>

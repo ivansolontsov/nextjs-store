@@ -5,10 +5,13 @@ import { makeStore, wrapper } from "../../store/store"
 import { CATALOG_ROUTE } from "../../utils/consts"
 import Catalog from "./index"
 
-const CategoryPage: FC = () => { return <Catalog /> }
+type Props = {
+    name: { name: string }
+}
+
+const CategoryPage: React.FC<Props> = ({ name }) => { return <Catalog categoryName={name.name} /> }
 
 export default CategoryPage
-
 
 export async function getStaticPaths() {
     const store = makeStore();
@@ -27,7 +30,9 @@ export const getStaticProps = wrapper.getStaticProps(
         await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
 
         return {
-            props: {},
+            props: {
+                name
+            },
         };
     }
 );

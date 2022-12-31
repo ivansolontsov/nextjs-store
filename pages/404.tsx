@@ -5,9 +5,14 @@ type Props = {}
 
 const ErrorNotFound = (props: Props) => {
     return (
-        <h1 style={{width: '100%', textAlign: 'center', padding: '300px 0px'}}>
-            Error 404, Page Not Found
-        </h1>
+        <div style={{ width: '100%', textAlign: 'center', padding: '300px 0px' }}>
+            <h1 >
+                Error 404
+            </h1>
+            <h3>
+                Page Not Found
+            </h3>
+        </div>
     )
 }
 

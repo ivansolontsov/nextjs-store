@@ -3,12 +3,16 @@ import { Button } from 'antd'
 import CreatorCard from './productCards/CreatorCard'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Creators.module.css'
+import { useGetAllUsersQuery } from '../store/users/UsersApi'
 
 const inter = Inter({ weight: ['500'], subsets: [] })
 
 type Props = {}
 
 const Creators = (props: Props) => {
+
+    const { data, isLoading, error } = useGetAllUsersQuery(9);
+
     return (
         <section className={styles['creators']}>
             <h2 className='section__title'>Our Creators</h2>
@@ -16,14 +20,19 @@ const Creators = (props: Props) => {
                 The largest and unique Super rare NFT marketplace
                 For crypto-collectibles</p>
             <div className={styles['creators__user-list']}>
-                <CreatorCard />
-                <CreatorCard />
-                <CreatorCard />
-                <CreatorCard />
-                <CreatorCard />
-                <CreatorCard />
-                <CreatorCard />
-                <CreatorCard />
+                {error ? 'error'
+                    : isLoading ? (
+                        <>
+                            Loading...
+                        </>
+                    )
+                        : data ? (
+                            <>
+                                {data.users.map((user) => (
+                                    <CreatorCard key={user.id} user={user} />
+                                ))}
+                            </>
+                        ) : null}
             </div>
             <Button type="default" className={`section__more-button ${inter.className}`}>Explore More</Button>
         </section>

@@ -11,22 +11,22 @@ export const cartSlice = createSlice({
         addItem: (state, action: PayloadAction<ICart>) => {
             state.push(action.payload)
         },
+        removeItem: (state, action: PayloadAction<{ id: number }>) => {
+            return state.filter(element => element.product.id !== action.payload.id)
+        },
         incrementCount: (state, action: PayloadAction<{ id: number }>) => {
-            state.forEach((e) => {
-                if(e.product.id === action.payload.id) {
+            return state.forEach((e) => {
+                if (e.product.id === action.payload.id) {
                     e.amount++
                 }
             })
         },
         decrementCount: (state, action: PayloadAction<{ id: number }>) => {
-            state.forEach((e) => {
-                if(e.product.id === action.payload.id) {
+            return state.forEach((e) => {
+                if (e.product.id === action.payload.id) {
                     e.amount--
                 }
             })
-        },
-        removeItem: (state, action: PayloadAction<{ id: number }>) => {
-            return state.filter(element => element.product.id !== action.payload.id)
         },
     }
 })

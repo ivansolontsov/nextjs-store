@@ -3,7 +3,7 @@ import { AutoComplete, Input, Spin } from 'antd';
 import styles from '../styles/Search.module.css'
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useGetSearchResultsQuery } from '../store/search/searchApi';
-import { IRootObject } from '../store/products/productTypes';
+import { IProductRootObject } from '../store/products/productTypes';
 import Link from 'next/link';
 import { PRODUCT_ROUTE } from '../utils/consts';
 import type { InputRef } from 'antd';
@@ -32,7 +32,7 @@ const Search: React.FC<Props> = ({ }) => {
         setNotFound('');
     }
 
-    const searchResult = (data: IRootObject) => {
+    const searchResult = (data: IProductRootObject) => {
         if (data.total != 0) {
             return data.products.map((item, index) => {
                 return {

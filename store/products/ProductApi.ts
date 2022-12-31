@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { IProduct, IRootObject } from "./productTypes";
+import { IProduct, IProductRootObject } from "./productTypes";
 import { HYDRATE } from 'next-redux-wrapper'
 
 export const ProductApi = createApi({
@@ -12,7 +12,7 @@ export const ProductApi = createApi({
         }
     },
     endpoints: (build) => ({
-        getProductsByParameters: build.query<IRootObject, [string, number]>({
+        getProductsByParameters: build.query<IProductRootObject, [string, number]>({
             query: ([name, limit]) => `products${name ? '/category/' + name : ''}?limit=${limit}`,
             providesTags: ['Product'],
         }),
@@ -20,7 +20,7 @@ export const ProductApi = createApi({
             query: (id) => `products/${id}`,
             providesTags: ['Product'],
         }),
-        getAllProducts: build.query<IRootObject, void>({
+        getAllProducts: build.query<IProductRootObject, void>({
             query: () => `products?limit=1000`,
             providesTags: ['Product'],
         }),
