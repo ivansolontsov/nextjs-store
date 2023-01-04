@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import 'antd/dist/reset.css';
 import '../styles/globals.css'
-import Container from '../components/Container';
+import AppLayout from '../components/Container';
 import { store } from '../store/store'
 import { Provider } from 'react-redux'
 import { ConfigProvider, theme } from 'antd';
@@ -22,9 +22,9 @@ export function App({ Component, pageProps }: AppProps) {
         algorithm: theme.darkAlgorithm,
       }}>
         <PersistGate persistor={persistor}>
-          <Container>
+          <AppLayout>
             <Component {...pageProps} />
-          </Container>
+          </AppLayout>
         </PersistGate>
       </ConfigProvider>
     </Provider>

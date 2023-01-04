@@ -13,10 +13,9 @@ type Props = {
     children: JSX.Element
 }
 
-const Container: React.FC<Props> = ({ children }) => {
+const AppLayout: React.FC<Props> = ({ children }) => {
     return (
         <>
-
             <div className={`container ${inter.className}`}>
                 <Header />
                 <Cart />
@@ -27,4 +26,4 @@ const Container: React.FC<Props> = ({ children }) => {
     )
 }
 
-export default Container
+export default AppLayout

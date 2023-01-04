@@ -1,6 +1,5 @@
 import React, { FC } from "react"
 import { CategoryApi } from "../../store/categories/categoryApi"
-import { ProductApi } from "../../store/products/ProductApi"
 import { makeStore, wrapper } from "../../store/store"
 import { CATALOG_ROUTE } from "../../utils/consts"
 import Catalog from "./index"

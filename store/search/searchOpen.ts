@@ -8,10 +8,10 @@ export const searchOpen = createSlice({
     name: 'searchOpen',
     initialState,
     reducers: {
-        openSearch: (state, action: PayloadAction) => {
+        openSearch: (state) => {
             state.isOpen = true;
         },
-        closeSearch: (state, action: PayloadAction) => {
+        closeSearch: (state) => {
             state.isOpen = false;
         },
     }

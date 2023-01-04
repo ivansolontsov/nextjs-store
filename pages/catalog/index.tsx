@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, { FC, useState, useEffect } from 'react'
 import styles from '../../styles/Catalog.module.css'
-import { Col, Row, Button } from 'antd'
+import { Col, Row, Button, Spin } from 'antd'
 import CategoryBar from '../../components/catalog/CategoryBar'
 import ProductList from '../../components/catalog/ProductList'
 import { useGetProductsByParametersQuery } from '../../store/products/ProductApi'
@@ -56,7 +56,21 @@ const Catalog: React.FC<Props> = ({ categoryName }) => {
               ? <ProductList />
               : <ProductList productList={data?.products.slice(0, limit)} />
             }
-            <Button disabled={disabled} onClick={() => handleShowMore()} type='default' style={{ marginTop: '40px' }} className={`section__more-button ${inter.className}`}>More</Button>
+            {isFetching
+              ? <Spin size='large' style={{ width: '100%', margin: '0 auto', padding: '80px 0px' }} />
+              : ''
+            }
+            <Button disabled={disabled} onClick={() => handleShowMore()} type='default' style={{ marginTop: '40px' }} className={`section__more-button ${inter.className}`}>
+              {isFetching
+                ? (
+                  <>
+                    More
+                    <Spin style={{ marginLeft: '10px' }} size='small' />
+                  </>
+                )
+                : 'More'
+              }
+            </Button>
           </Col>
         </Row>
       </section>
