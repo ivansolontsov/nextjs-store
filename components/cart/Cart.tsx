@@ -47,7 +47,7 @@ const Cart: React.FC<Props> = ({ }) => {
                 {cart.length === 0 ? 'Your shopping cart is empty...' : ''}
                 {cart.length > 0 && (
                     <div className={styles['cart']}>
-                        {cart.map((e) => (
+                        {cart.map((e: ICart) => (
                             <div key={e.product.id} className={styles['cart__item']}>
                                 <div className={styles['cart__item-left']}>
                                     <div className={styles['cart__item-image']}>
@@ -69,7 +69,7 @@ const Cart: React.FC<Props> = ({ }) => {
                             </div>
                         ))}
                         <div className={styles['cart__total']}>
-                            ${cart.reduce((summary, cartItem) => summary + (cartItem.product.price * cartItem.amount), 0)}
+                            ${cart.reduce((summary: number, cartItem: ICart) => summary + (cartItem.product.price * cartItem.amount), 0)}
                         </div>
                     </div>
                 )}
