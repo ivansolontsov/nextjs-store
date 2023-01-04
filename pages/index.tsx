@@ -3,6 +3,7 @@ import React from 'react';
 import Creators from '../components/Creators';
 import Hero from '../components/Hero';
 import LiveAuction from '../components/LiveAuction';
+import Roadmap from '../components/Roadmap';
 import TopCollection from '../components/TopCollection';
 import Why from '../components/Why';
 
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <Hero />
       <Why />
       <LiveAuction />
+      <Roadmap />
       <TopCollection />
       <Creators />
     </>

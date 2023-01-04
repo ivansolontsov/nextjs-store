@@ -1,0 +1,144 @@
+.roadmap {
+    margin-top: 160px;
+    padding: 0px 120px;
+}
+
+.roadmap__months {
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.roadmap__month-item {
+    background: linear-gradient(90deg, rgba(21, 191, 253, 0) 71.19%, rgba(21, 191, 253, 0.7) 92.61%, rgba(156, 55, 253, 0.7) 100%);
+    width: max-content;
+    border-radius: 20px;
+    padding: 6px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: max-content;
+}
+
+._right {
+    background: linear-gradient(270deg, rgba(21, 191, 253, 0) 71.19%, rgba(21, 191, 253, 0.7) 92.61%, rgba(156, 55, 253, 0.7) 100%);
+}
+
+.roadmap__month-arrow_left {
+    z-index: 100;
+    position: absolute;
+    height: 7px;
+    width: 65px;
+    background: url('../public/image/rm_arrow.svg');
+    background-repeat: no-repeat;
+    right: -65px;
+    display: flex;
+    align-items: center;
+}
+
+
+.roadmap__month-arrow_right {
+    z-index: 100;
+    position: absolute;
+    height: 7px;
+    width: 65px;
+    transform: rotateZ(180deg);
+    background: url('../public/image/rm_arrow.svg');
+    background-repeat: no-repeat;
+    left: -65px;
+    display: flex;
+    align-items: center;
+}
+
+
+.roadmap__month-dot_left {
+    position: absolute;
+    right: -25px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: #15BFFD;
+    display: flex;
+    justify-content: center;
+}
+
+.roadmap__month-dot_right {
+    position: absolute;
+    right: -25px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: #15BFFD;
+    display: flex;
+    justify-content: center;
+}
+
+.roadmap__line {
+    position: absolute;
+    background: linear-gradient(91.36deg, rgba(21, 191, 253, 0.7) 47.62%, rgba(156, 55, 253, 0.7) 51.2%);
+    width: 3px;
+    height: 877px;
+}
+
+.roadmap__month-border {
+    width: max-content;
+    border-radius: 16px;
+    padding: 12px;
+}
+
+.roadmap__month-border_right {
+    background: linear-gradient(90deg, #090b2a 20%, transparent 40%);
+}
+
+
+.roadmap__month-border_left {
+    background: linear-gradient(270deg, #090b2a 20%, transparent 40%);
+}
+
+.roadmap__month-wrapper {
+    background: linear-gradient(152.14deg, rgba(21, 191, 253, 0.7) 9.96%, rgba(156, 55, 253, 0.7) 100%);
+    width: max-content;
+    border-radius: 8px;
+    padding: 1px
+}
+
+.roadmap__month-inner-content {
+    max-width: 484px;
+    min-width: 484px;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: #141735;
+    padding: 23px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.roadmap__item-label {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Clash Display';
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+}
+
+.roadmap__item-title {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Clash Display';
+    font-weight: 600;
+    font-size: 32px;
+
+}
+
+.roadmap__item-text {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Clash Display';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}

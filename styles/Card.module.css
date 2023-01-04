@@ -4,8 +4,8 @@
     background-image: url('../public/image/card.svg');
     background-size: cover;
     background-repeat: no-repeat;
-    min-width: 293px;
-    height: 400px;
+    min-width: 294px;
+    height: 401px;
     overflow: hidden;
     padding: 16px;
     backdrop-filter: blur(3px);

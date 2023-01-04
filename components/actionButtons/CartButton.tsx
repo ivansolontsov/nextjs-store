@@ -1,5 +1,5 @@
 import { Badge, Button } from 'antd'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ShoppingOutlined } from '@ant-design/icons';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';

@@ -7,11 +7,7 @@ import { Provider } from 'react-redux'
 import { ConfigProvider, theme } from 'antd';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { persistStore } from 'redux-persist';
-
-
-// SSR
-const { wrapper } = require("../store/store");
-// SSR
+import { wrapper } from '../store/store';
 
 let persistor = persistStore(store)
 
