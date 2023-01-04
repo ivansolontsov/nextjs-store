@@ -10,8 +10,6 @@ import { IProduct } from '../../store/products/productTypes'
 import { makeStore, wrapper } from '../../store/store'
 import { useRouter } from 'next/router'
 import { BaseRouter } from 'next/dist/shared/lib/router/router'
-import { ICart } from '../../store/cart/cartType'
-import { IFavorites } from '../../store/favorites/favoritesTypes'
 
 type Props = {
 }
@@ -28,8 +26,8 @@ const Details: React.FC<Props> = ({ }) => {
   const { addItem, openModal, addToFavorites, removeFromFavorites } = useActions()
   const { cart, favorites } = useTypedSelector(state => state)
 
-  const isAlreadyInCart = cart.some((el: ICart) => el.product.id === Number(id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
-  const isAlreadyInFav = favorites.some((el: IFavorites) => el.product.id === Number(id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В FAVORITES
+  const isAlreadyInCart = cart.some(el => el.product.id === Number(id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
+  const isAlreadyInFav = favorites.some(el => el.product.id === Number(id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В FAVORITES
 
   const [mainImage, setMainImage] = React.useState<IImage>({ link: '' })
 

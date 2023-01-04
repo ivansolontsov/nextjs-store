@@ -12,8 +12,6 @@ import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import Link from 'next/link';
 import { PRODUCT_ROUTE } from '../../utils/consts'
-import { ICart } from '../../store/cart/cartType'
-import { IFavorites } from '../../store/favorites/favoritesTypes'
 
 const poppins = Poppins({ weight: ['500', '600'], subsets: [] })
 const inter = Inter({ weight: ['600'], subsets: [] })
@@ -30,8 +28,8 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
     const { addToFavorites, removeFromFavorites } = useActions()
     const { favorites } = useTypedSelector(state => state)
     const { cart } = useTypedSelector(state => state) // ВЫЗЫВАЕМ СЕЛЕКТОР СТОРА
-    const isAlreadyInCart = cart.some((el: ICart) => el.product.id === productInfo?.id) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
-    const isAlreadyInFav = favorites.some((el: IFavorites) => el.product.id === Number(productInfo?.id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В FAVORITES
+    const isAlreadyInCart = cart.some(el => el.product.id === productInfo?.id) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
+    const isAlreadyInFav = favorites.some(el => el.product.id === Number(productInfo?.id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В FAVORITES
 
     // ПЛЕЙСХОЛДЕР ДЛЯ АВАТАРОК В БОЛЬШОЙ КАРТОЧКЕ
     let orders: number[];
