@@ -26,8 +26,8 @@ export async function getStaticPaths() {
 export const getStaticProps = wrapper.getStaticProps(
     (store) => async (context) => {
         const name = context.params
-        store.dispatch(ProductApi.endpoints.getProductsByParameters.initiate([String(name), 1000]));
-        await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
+        // store.dispatch(ProductApi.endpoints.getProductsByParameters.initiate([String(name), 1000]));
+        // await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
         return {
             props: {
                 name

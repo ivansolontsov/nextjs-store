@@ -177,26 +177,6 @@ const Details: React.FC<Props> = ({ }) => {
 
 export default Details
 
-
-// import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
-// export async function getServerSideProps({ params }: Params) {
-//   const store = makeStore();
-//   const result = await store.dispatch(ProductApi.endpoints.getProductById.initiate(params.id));
-//   const data = result.data
-
-//   if (result.error) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   return {
-//     props: {
-//       data,
-//     }
-//   }
-// }
-
 export async function getStaticPaths() {
   const store = makeStore();
   const result = await store.dispatch(ProductApi.endpoints.getAllProducts.initiate());
@@ -210,10 +190,10 @@ export async function getStaticPaths() {
 
 export const getStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
-    const id = context.params?.id;
-    const result = await store.dispatch(ProductApi.endpoints.getProductById.initiate(id || ''));
-    await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
-    const data = result.data
+    // const id = context.params?.id;
+    // const result = await store.dispatch(ProductApi.endpoints.getProductById.initiate(id || ''));
+    // await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
+    // const data = result.data
 
     return {
       props: {},
