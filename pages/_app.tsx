@@ -10,12 +10,16 @@ import { persistStore } from 'redux-persist';
 import { wrapper } from '../store/store';
 import Router from 'next/router'
 import { useState, useEffect } from 'react';
-import Loader from '../components/Loader/loader';
+import PreLoader from '../components/PreLoader/PreLoader';
 
 let persistor = persistStore(store)
 
 export function App({ Component, pageProps }: AppProps) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
 
   useEffect(() => {
     Router.events.on("routeChangeStart", (url) => {
@@ -39,7 +43,7 @@ export function App({ Component, pageProps }: AppProps) {
         algorithm: theme.darkAlgorithm,
       }}>
         <PersistGate persistor={persistor}>
-          {isLoading && <Loader />}
+          {isLoading && <PreLoader />}
           <AppLayout>
             <Component {...pageProps} />
           </AppLayout>
@@ -48,6 +52,5 @@ export function App({ Component, pageProps }: AppProps) {
     </Provider>
   )
 }
-
 
 export default wrapper.withRedux(App);
