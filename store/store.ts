@@ -56,8 +56,11 @@ setupListeners(store.dispatch)
 
 export type TypeRootState = ReturnType<typeof store.getState>
 
-// NEW STORE FOR SSG
 
+
+
+
+// NEW STORE FOR SSG
 // SSG
 import { createWrapper } from "next-redux-wrapper";
 
@@ -74,4 +77,4 @@ export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<AppStore["getState"]>;
 export type AppDispatch = AppStore["dispatch"];
 
-export const wrapper = createWrapper<AppStore>(makeStore, { debug: true });
+export const wrapper = createWrapper<AppStore>(makeStore, { debug: false });

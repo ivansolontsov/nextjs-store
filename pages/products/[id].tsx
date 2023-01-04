@@ -12,7 +12,6 @@ import { useRouter } from 'next/router'
 import { BaseRouter } from 'next/dist/shared/lib/router/router'
 
 type Props = {
-  data: IProduct
 }
 
 interface IImage {
@@ -89,20 +88,11 @@ const Details: React.FC<Props> = ({ }) => {
                     sizes='(max-width: 1600px) 500px'
                     style={{ objectFit: 'cover' }}
                   />
-                  <Image
-                    src={mainImage.link || data.thumbnail}
-                    alt={data.title}
-                    priority={false}
-                    fill
-                    sizes='(max-width: 1600px) 500px'
-                    style={{ objectFit: 'cover' }}
-                    className={styles['detail__image-fx']}
-                  />
                 </div>
                 <div className={styles['details__gallery-items']}>
                   {data.images.map((image, index) => (
                     <div key={index} className={styles['details__gallery-item']} onMouseEnter={() => handleGallery(image)}>
-                      <Image priority={false} src={image} sizes='(max-width: 1600px) 50px' fill alt={data.title} style={{ objectFit: 'cover' }} />
+                      <Image priority={false} loading={'lazy'} src={image} sizes='(max-width: 1600px) 50px' fill alt={data.title} style={{ objectFit: 'cover' }} />
                     </div>
                   ))}
                 </div>
@@ -207,27 +197,26 @@ export default Details
 //   }
 // }
 
-// export async function getStaticPaths() {
-//   const store = makeStore();
-//   const result = await store.dispatch(ProductApi.endpoints.getAllProducts.initiate());
+export async function getStaticPaths() {
+  const store = makeStore();
+  const result = await store.dispatch(ProductApi.endpoints.getAllProducts.initiate());
 
-//   return {
-//     paths: result.data?.products
-//       .map((prod) => `/products/${prod.id}`),
-//     fallback: false,
-//   };
-// }
+  return {
+    paths: result.data?.products
+      .map((prod) => `/products/${prod.id}`),
+    fallback: false,
+  };
+}
 
-// export const getStaticProps = wrapper.getStaticProps(
-//   (store) => async (context) => {
-//     const id = context.params?.id;
-//     const result = await store.dispatch(ProductApi.endpoints.getProductById.initiate(Number(id)));
-//     await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
+export const getStaticProps = wrapper.getStaticProps(
+  (store) => async (context) => {
+    const id = context.params?.id;
+    const result = await store.dispatch(ProductApi.endpoints.getProductById.initiate(id || ''));
+    await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
+    const data = result.data
 
-//     const data = result.data
-
-//     return {
-//       props: {},
-//     };
-//   }
-// );
+    return {
+      props: {},
+    };
+  }
+);

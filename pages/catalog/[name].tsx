@@ -1,5 +1,6 @@
 import React, { FC } from "react"
 import { CategoryApi } from "../../store/categories/categoryApi"
+import { ProductApi } from "../../store/products/ProductApi"
 import { makeStore, wrapper } from "../../store/store"
 import { CATALOG_ROUTE } from "../../utils/consts"
 import Catalog from "./index"
@@ -25,8 +26,8 @@ export async function getStaticPaths() {
 export const getStaticProps = wrapper.getStaticProps(
     (store) => async (context) => {
         const name = context.params
-        // store.dispatch(ProductApi.endpoints.getProductsByParameters.initiate([String(name), 1000]));
-        // await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
+        store.dispatch(ProductApi.endpoints.getProductsByParameters.initiate([String(name), 1000]));
+        await Promise.all(store.dispatch(ProductApi.util.getRunningQueriesThunk()));
         return {
             props: {
                 name
