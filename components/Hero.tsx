@@ -50,8 +50,9 @@ const Hero = (props: Props) => {
                         </ul>
                     ) : fetchCategories.data ? (
                         <div className={styles['hero__categories-list']}>
+                            <Link href={`${CATALOG_ROUTE}`} className={`${styles['hero__categories-list-item_primary']} ${styles['hero__categories-list-item']} `}>All</Link>
                             {
-                                fetchCategories.data.slice(0, 6).map((name, index) => (
+                                fetchCategories.data.slice(0, 5).map((name, index) => (
                                     <Link key={index} href={`${CATALOG_ROUTE}/${name}`} className={styles['hero__categories-list-item']}>{name}</Link>
                                 ))
                             }
