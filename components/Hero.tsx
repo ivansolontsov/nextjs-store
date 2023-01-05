@@ -29,7 +29,7 @@ const Hero = (props: Props) => {
                     </div>
                 </div>
                 <p className={styles['hero__subtitle']}>
-                    I've used React & Next.js, Redux Toolkit, RTK Query, Redux Persist, Antd, TypeScript
+                    Used React & Next.js, Redux Toolkit, RTK Query, Redux Persist, Antd, TypeScript.
                 </p>
                 <div className={styles['hero__button-group']}>
                     <Link href={CATALOG_ROUTE} className={styles['hero__button_primary']}>Catalog</Link>
