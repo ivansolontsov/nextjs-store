@@ -189,35 +189,16 @@
 } 
 
 .hero__cards::after {
-    /* background: url('../public/image/line.svg');
-    background-size: 713px 573px;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    right: -136px;
-    top: 43px;
-    background-repeat: no-repeat; */
-}
-
-
-/* .hero__cards-spiral {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    right: -255px;
-    z-index: -10;
-} */
-
-/* .hero__cards-print {
+    background: url('../public/image/exclusive.svg');
+    content: '';
     position: absolute;
     object-fit: cover;
     width: 157px;
     height: 133px;
     right: 44px;
     top: -49px;
-    z-index: -10;
-} */
+    z-index: -1;
+}
 
 
 @media screen and (max-width: 1734px) {
