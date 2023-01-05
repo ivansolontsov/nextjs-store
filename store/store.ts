@@ -23,7 +23,7 @@ import {
 
 
 const persistConfig = {
-  key: 'root1',
+  key: 'root',
   storage: storage,
   blacklist: ['productApi', 'categoryApi', 'searchOpen', 'searchApi'],
 }

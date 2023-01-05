@@ -9,7 +9,7 @@ export const favoritesSlice = createSlice({
     initialState,
     reducers: {
         addToFavorites: (state, action: PayloadAction<IProduct>) => {
-            state.push({ product: action.payload, createdAt: new Date() })
+            state.push({ product: action.payload })
         },
         removeFromFavorites: (state, action: PayloadAction<{ id: number }>) => {
             return state.filter(element => element.product.id !== action.payload.id)
