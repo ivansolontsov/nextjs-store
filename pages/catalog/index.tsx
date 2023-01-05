@@ -14,9 +14,9 @@ type Props = {
 }
 
 const Catalog: React.FC<Props> = ({ categoryName }) => {
-  const [limit, setLimit] = React.useState(21);
-  const [total, setTotal] = React.useState(0);
-  const [disabled, setDisabled] = React.useState(true);
+  const [limit, setLimit] = React.useState<number>(21);
+  const [total, setTotal] = React.useState<number>(0);
+  const [disabled, setDisabled] = React.useState<boolean>(true);
   const { data, isLoading, isFetching } = useGetProductsByParametersQuery([categoryName || '', limit]);
 
   useEffect(() => {

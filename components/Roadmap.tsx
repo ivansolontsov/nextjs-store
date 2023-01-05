@@ -12,6 +12,9 @@ const Roadmap = ({ }: Props) => {
       <h2 className='section__title'>Roadmap 2022</h2>
       <p className='section__subtitle'>The largest and unique Super rare NFT marketplace For crypto-collectibles</p>
       <div className={styles.roadmap__months}>
+        <div className={styles['roadmap__months-bg']}>
+          <div className={styles.roadmap__line}></div>
+        </div>
         <RoadMapCard direction='left' first={true} month={'January'} title={'Brief'} text={text} />
         <RoadMapCard direction='right' month={'February'} title={'Research'} text={text} />
         <RoadMapCard direction='left' month={'March'} title={'Discover'} text={text} />

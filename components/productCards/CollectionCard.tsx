@@ -10,7 +10,7 @@ const CollectionCard = (props: Props) => {
     return (
         <div className={styles['collection__cards-item']}>
             <div className={styles['collection__card-header']}>
-                <small className='collection__card-created-text'>Created by</small>
+                <small className={styles['collection__card-created-text']}>Created by</small>
                 <h3 className={styles['collection__card-creator']}>James Watson</h3>
             </div>
             <div className={styles['collection__card-images']}>

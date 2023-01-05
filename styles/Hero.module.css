@@ -1,7 +1,7 @@
 /* HERO  */
 .hero {
-    padding: 0px 0px 0px 120px;
-    margin-top: 80px;
+    padding: 80px 0px 0px 120px;
+    /* margin-top: 80px; */
     display: flex;
     flex-direction: row;
     gap: 19px;
@@ -11,7 +11,7 @@
 .hero__info {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 20px;
     min-width: 588px;
 }
 
@@ -42,9 +42,9 @@
 .hero__title-line {}
 
 .hero__line-wrapper {
-    width: 427px;
-    height: 38px;
+    height: 62px;
     position: relative;
+    margin-top: -12px;
 }
 
 .hero__subtitle {
@@ -53,15 +53,16 @@
     font-size: 16px;
     line-height: 24px;
     max-width: 391px;
+    margin: 0px;
 }
 
 .hero__button-group {
+    margin-top: 11px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     gap: 40px;
-
 }
 
 .hero__button_primary {
@@ -112,6 +113,7 @@
 }
 
 .hero__categories {
+    margin-top: 11px;
     display: flex;
     flex-direction: column;
     gap: 35px;
@@ -127,7 +129,7 @@
 
 .hero__categories-list {
     list-style: none;
-    margin: 0px;
+    margin: 3px 0px 0px 0px;
     padding: 0px;
     display: flex;
     flex-direction: row;
@@ -142,7 +144,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4px 20px;
+    padding: 3.9px 20px;
     gap: 10px;
     color: white;
     text-decoration: none;
@@ -176,33 +178,68 @@
     width: 100%;
 }
 
-.hero__cards::before {
+
+.hero::before {
     background: url('../public/image/line.svg');
-    background-size: 713px 573px;
+    background-size: 602px 484px;
+    background-position: top right;
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
-    right: -136px;
-    top: 43px;
+    width: 603px;
+    height: 484px;
+    right: -45px;
+    top: 122px;
+    /* border: 1px solid red; */
     background-repeat: no-repeat;
 } 
 
-.hero__cards::after {
+.hero::after {
     background: url('../public/image/exclusive.svg');
     content: '';
     position: absolute;
     object-fit: cover;
     width: 157px;
     height: 133px;
-    right: 44px;
-    top: -49px;
+    right: 157px;
+    top: 18px;
     z-index: -1;
 }
 
 
-@media screen and (max-width: 1734px) {
-    /* .hero {
-        padding: 0px;
-    } */
+
+@media screen and (max-width: 1540px) {
+    .hero {
+        overflow: hidden;
+    } 
+}
+
+@media screen and (max-width: 1420px) {
+    .hero {
+        padding: 80px 120px 0px 120px;
+    }
+    .hero::after {
+        bottom: 0px;
+        right: 0px;
+        top: auto;
+        left: auto;
+    }
+}
+
+@media screen and (max-width: 1210px) {
+    .hero {
+        padding: 80px 60px 0px 60px;
+    }
+}
+
+@media screen and (max-width: 1051px) {
+    .hero__info {
+        width: fit-content;
+        min-width: auto;
+        flex-basis: 50%;
+    }
+    .hero__cards {
+        width: auto;
+        justify-content: flex-end;
+        flex-basis: 50%;
+    }
 }

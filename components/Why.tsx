@@ -13,7 +13,7 @@ const Why = (props: Props) => {
             <div className={styles["why__glass-wrapper"]}>
                 <div className={styles["why__pic"]}>
                     <div className={styles["why__monkey"]}>
-                        <Image src={monkeyImg} fill alt='Why Us?' sizes='(max-width: 1600px) 482px' />
+                        <Image src={monkeyImg} fill alt='Why Us?' style={{objectFit: 'contain'}} sizes='(max-width: 1600px) 482px' />
                     </div>
                 </div>
                 <div className={styles["why__text"]}>

@@ -25,12 +25,12 @@ const Hero = (props: Props) => {
                         Next Js <span>Pet Project</span>
                     </h1>
                     <div className={styles['hero__line-wrapper']}>
-                        <Image src={line} fill alt='line' sizes='(max-width: 1600px) 427px' style={{ objectFit: 'contain' }} />
+                        <Image src={line} fill alt='line' sizes='(max-width: 1600px) 427px' style={{ objectFit: 'contain', objectPosition: 'top left' }} />
                     </div>
                 </div>
-                <div className={styles['hero__subtitle']}>
-                    React, Next.js, Redux Toolkit, Antd, TypeScript
-                </div>
+                <p className={styles['hero__subtitle']}>
+                    I've used React & Next.js, Redux Toolkit, RTK Query, Redux Persist, Antd, TypeScript
+                </p>
                 <div className={styles['hero__button-group']}>
                     <Link href={CATALOG_ROUTE} className={styles['hero__button_primary']}>Catalog</Link>
                     <Link href={FAVORITES_ROUTE} className={styles['hero__button_secondary']}>Your Wish List <Image src={arrowRight} width={28} alt='Arrow Right' /></Link>

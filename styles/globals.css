@@ -20,19 +20,18 @@ body {
 /* HEADER */
 
 .header {
-    padding: 46px 120px;
+    padding: 43px 70px 43px 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    z-index: 2;
     gap: 40px;
 }
 
 .header__nav {
     display: flex;
     flex-direction: row;
-    gap: 40px;
+    gap: 47px;
 }
 
 .header__left-side {
@@ -166,7 +165,7 @@ body {
 .footer__links {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .footer__links-title {
@@ -243,7 +242,8 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 20px 12px;
+    font-size: 16px;
+    padding: 23.2px 19px;
     border: 1px solid #15BFFD;
     border-radius: 30px;
     margin: 0 auto;

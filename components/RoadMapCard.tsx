@@ -15,17 +15,11 @@ const RoadMapCard = ({ direction, first, title, text, month }: Props) => {
             first
                 ? {}
                 : direction === 'left'
-                    ? { marginTop: '0px' }
-                    : { marginTop: '122px' }
+                    ? { marginTop: '-6px' }
+                    : { marginTop: '120px' }
         } className={`${styles['roadmap__month-item']} ${direction === 'left' ? '' : styles._right}`}>
             <div className={`${direction === "left" ? styles['roadmap__month-arrow_left'] : styles['roadmap__month-arrow_right']}`}>
-                <div className={`${direction === 'left' ? styles['roadmap__month-dot_left'] : styles['roadmap__month-dot_right']}`}>
-                    {
-                        first && (
-                            <div className={styles.roadmap__line}></div>
-                        )
-                    }
-                </div>
+                <div className={`${direction === 'left' ? styles['roadmap__month-dot_left'] : styles['roadmap__month-dot_right']}`}></div>
             </div>
             <div className={`${styles['roadmap__month-border']} ${direction === "left" ? styles['roadmap__month-border_left'] : styles['roadmap__month-border_right']}`}>
                 <div className={styles['roadmap__month-wrapper']}>
