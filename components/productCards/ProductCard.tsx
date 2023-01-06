@@ -12,6 +12,7 @@ import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import Link from 'next/link';
 import { PRODUCT_ROUTE } from '../../utils/consts'
+import { isIn } from '../../utils/helper/isInStorage'
 
 const poppins = Poppins({ weight: ['500', '600'], subsets: [] })
 const inter = Inter({ weight: ['600'], subsets: [] })
@@ -28,15 +29,13 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
     const { addToFavorites, removeFromFavorites } = useActions()
     const { favorites } = useTypedSelector(state => state)
     const { cart } = useTypedSelector(state => state) // ВЫЗЫВАЕМ СЕЛЕКТОР СТОРА
-    const isAlreadyInCart = cart.some(el => el.product.id === productInfo?.id) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
-    const isAlreadyInFav = favorites.some(el => el.product.id === Number(productInfo?.id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В FAVORITES
 
     // ПЛЕЙСХОЛДЕР ДЛЯ АВАТАРОК В БОЛЬШОЙ КАРТОЧКЕ
     let orders: number[];
     orders = [1, 2, 3, 4]
 
     const handleFavorites = (product: IProduct) => {
-        isAlreadyInFav
+        isIn(product, favorites)
             ? removeFromFavorites({ id: product.id })
             : addToFavorites(product)
     }
@@ -68,20 +67,20 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
                 )}
                 {isBig && (
                     <Button
-                        disabled={isAlreadyInCart}
+                        disabled={isIn(productInfo, cart)}
                         type='primary'
                         className={`${styles['card__large-button']} ${inter.className}`}
                         onClick={() => {
                             addItem(productInfo)
                         }}
                     >
-                        {isAlreadyInCart ? 'Product Added' : 'Add In Cart'}
+                        {isIn(productInfo, cart) ? 'Product Added' : 'Add In Cart'}
                     </Button>
                 )}
             </div>
             <div className={`${styles['card__image']} ${isBig ? styles['card__large-image'] : null}`}>
                 <Tooltip title={
-                    isAlreadyInFav
+                    isIn(productInfo, favorites)
                         ? 'Remove from favorites'
                         : 'Add in Favorites'
                 }>
@@ -93,7 +92,7 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
                         type='ghost'
                         shape='default'
                         icon={
-                            isAlreadyInFav
+                            isIn(productInfo, favorites)
                                 ? <HeartFilled style={{ color: 'red' }} />
                                 : <HeartOutlined />
                         } />

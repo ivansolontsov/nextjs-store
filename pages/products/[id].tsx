@@ -12,6 +12,7 @@ import { useRouter } from 'next/router'
 import { BaseRouter } from 'next/dist/shared/lib/router/router'
 import Head from 'next/head'
 import MotionLayout from '../../components/Layouts/MotionLayout'
+import { isIn } from '../../utils/helper/isInStorage'
 
 type Props = {
   productInfo: IProduct
@@ -29,9 +30,6 @@ const Details: React.FC<Props> = ({ productInfo }) => {
   const { addItem, openModal, addToFavorites, removeFromFavorites } = useActions()
   const { cart, favorites } = useTypedSelector(state => state)
 
-  const isAlreadyInCart = cart.some(el => el.product.id === Number(id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
-  const isAlreadyInFav = favorites.some(el => el.product.id === Number(id)) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В FAVORITES
-
   const [mainImage, setMainImage] = React.useState<IImage>({ link: '' })
 
   useEffect(() => {
@@ -43,14 +41,14 @@ const Details: React.FC<Props> = ({ productInfo }) => {
   }
 
   const handleCart = (item: IProduct) => {
-    if (!isAlreadyInCart) {
+    if (!isIn(item, cart)) {
       addItem(item)
       openNotificationWithIcon('success');
     }
   }
 
   const handleFavorites = (product: IProduct) => {
-    isAlreadyInFav
+    isIn(product, favorites)
       ? removeFromFavorites({ id: product.id })
       : addToFavorites(product)
   }
@@ -134,14 +132,14 @@ const Details: React.FC<Props> = ({ productInfo }) => {
                             size='large'
                             type='primary'
                             style={{ width: '100%' }}>
-                            {isAlreadyInCart
+                            {isIn(data, cart)
                               ? 'Added Successfully'
                               : 'Add to Cart'}
                           </Button>
                         </Col>
                         <Col span={4}>
                           <Tooltip title={
-                            isAlreadyInFav
+                            isIn(data, favorites)
                               ? 'Remove from favorites'
                               : 'Add in Favorites'
                           }>
@@ -152,7 +150,7 @@ const Details: React.FC<Props> = ({ productInfo }) => {
                               type='primary'
                               shape='default'
                               icon={
-                                isAlreadyInFav
+                                isIn(data, favorites)
                                   ? <HeartFilled style={{ color: 'red' }} />
                                   : <HeartOutlined />
                               } />

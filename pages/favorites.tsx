@@ -6,16 +6,14 @@ import { useTypedSelector } from '../hooks/useTypedSelector'
 import { useActions } from '../hooks/useActions'
 import Image from 'next/image'
 import { Button } from 'antd'
-import { IProduct } from '../store/products/productTypes'
 import MotionLayout from '../components/Layouts/MotionLayout'
+import { isIn } from '../utils/helper/isInStorage'
 
 
 const Category: FC = () => {
     const { favorites, cart } = useTypedSelector(state => state);
     const { removeFromFavorites } = useActions()
     const { addItem } = useActions()
-
-    const isAlreadyAddedCart = (product: IProduct) => cart.some((i) => i.product.id === product.id) // ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
 
     const handleRemoveFromFavorites = (id: number) => {
         removeFromFavorites({ id: id })
@@ -44,8 +42,8 @@ const Category: FC = () => {
                                         <Button className={styles.favorites__button} onClick={() => handleRemoveFromFavorites(item.product.id)}>
                                             Remove from Favorites
                                         </Button>
-                                        <Button disabled={isAlreadyAddedCart(item.product)} className={styles.favorites__button} onClick={() => addItem(item.product)}>
-                                            {isAlreadyAddedCart(item.product) ? 'Added' : 'Add To Cart'}
+                                        <Button disabled={isIn(item.product, cart)} className={styles.favorites__button} onClick={() => addItem(item.product)}>
+                                            {isIn(item.product, cart) ? 'Added' : 'Add To Cart'}
                                         </Button>
                                     </div>
                                 </div>
