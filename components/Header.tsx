@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { navRoutes } from '../utils/routes'
+import { externalRoutes, navRoutes } from '../utils/routes'
 import Image from 'next/image';
 import logo from '../public/image/logo.svg'
 import Link from 'next/link';
@@ -17,6 +17,9 @@ const Header: React.FC = () => {
                 <nav className='header__nav'>
                     {navRoutes.map((route, index) => (
                         <Link key={index} href={route.path} className={`header__nav-link ${pathname === route.path ? 'header__nav-link_active' : ''}`}>{route.name}</Link>
+                    ))}
+                    {externalRoutes.map((route, index) => (
+                        <a key={index} href={route.path} className={`header__nav-link`} target="_blank">{route.name}</a>
                     ))}
                 </nav>
             </div>

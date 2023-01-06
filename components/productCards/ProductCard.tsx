@@ -45,7 +45,7 @@ const ProductCard: React.FC<Props> = ({ rotated, isBig, productInfo }) => {
     const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
     if (!productInfo) {
         return (
-            <div style={{ filter: 'grayscale(1)' }} className={`${styles['card']} ${poppins.className} ${isBig ? styles['card__large'] : ''} ${rotated ? styles['card__rotated'] : ''}`}>
+            <div style={{ filter: 'opacity(.3) grayscale(1)' }} className={`${styles['card']} ${poppins.className} ${isBig ? styles['card__large'] : ''} ${rotated ? styles['card__rotated'] : ''}`}>
                 <Skeleton.Image active />
                 <Skeleton active />
                 <Spin indicator={antIcon} />

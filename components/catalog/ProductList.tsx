@@ -12,8 +12,6 @@ const ProductList: React.FC<Props> = ({ productList }) => {
         return (
             <div className={styles['products__list']}>
                 <ProductCard />
-                <ProductCard />
-                <ProductCard />
             </div>
         )
     }

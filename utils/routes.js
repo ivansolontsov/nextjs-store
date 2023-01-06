@@ -10,3 +10,10 @@ export const navRoutes = [
         name: 'Favorites'
     },
 ]
+
+export const externalRoutes = [
+    {
+        path: 'https://github.com/ivansolontsov',
+        name: 'GitHub'
+    }
+]
