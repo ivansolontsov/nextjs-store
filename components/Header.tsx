@@ -19,7 +19,7 @@ const Header: React.FC = () => {
                         <Link key={index} href={route.path} className={`header__nav-link ${pathname === route.path ? 'header__nav-link_active' : ''}`}>{route.name}</Link>
                     ))}
                     {externalRoutes.map((route, index) => (
-                        <a key={index} href={route.path} className={`header__nav-link`} target="_blank">{route.name}</a>
+                        <a key={index} href={route.path} className={`header__nav-link`} target="_blank" rel='noreferrer'>{route.name}</a>
                     ))}
                 </nav>
             </div>
