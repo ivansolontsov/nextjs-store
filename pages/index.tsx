@@ -12,10 +12,10 @@ const App: React.FC = () => {
   return (
     <>
       <Head>
-        <title>My page title</title>
+        <title>Next.Js Mainpage - Ivan Solontsov</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content="My page title" key="title" />
-        <meta property="og:description" content="Lorem ipsum" key="description" />
+        <meta property="og:title" content="Next.Js Mainpage - Ivan Solontsov" key="title" />
+        <meta property="og:description" content="React + Next.js + TypeScript + ANTD + Redux Toolkit" key="description" />
       </Head>
       <Hero />
       <Why />

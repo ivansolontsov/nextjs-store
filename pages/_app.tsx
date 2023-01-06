@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import 'antd/dist/reset.css';
 import '../styles/globals.css'
-import AppLayout from '../components/Container';
+import AppLayout from '../components/Layouts/AppLayout';
 import { store } from '../store/store'
 import { Provider } from 'react-redux'
 import { ConfigProvider, theme } from 'antd';
@@ -12,6 +12,7 @@ import Router from 'next/router'
 import { useState, useEffect } from 'react';
 import PreLoader from '../components/PreLoader/PreLoader';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { AnimatePresence } from 'framer-motion';
 
 let persistor = persistStore(store)
 
@@ -50,7 +51,12 @@ export function App({ Component, pageProps }: AppProps) {
         <PersistGate persistor={persistor}>
           {isLoading && <PreLoader />}
           <AppLayout>
-            <Component {...pageProps} />
+            <AnimatePresence
+              initial={true}
+              mode='wait'
+            >
+              <Component {...pageProps} />
+            </AnimatePresence>
           </AppLayout>
         </PersistGate>
       </ConfigProvider>

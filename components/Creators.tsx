@@ -4,6 +4,7 @@ import CreatorCard from './productCards/CreatorCard'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Creators.module.css'
 import { useGetAllUsersQuery } from '../store/users/UsersApi'
+import LazyViewAnimate from './Layouts/LazyViewAnimate'
 
 const inter = Inter({ weight: ['500'], subsets: [] })
 
@@ -14,7 +15,7 @@ const Creators = (props: Props) => {
     const { data, isLoading, error } = useGetAllUsersQuery(9);
 
     return (
-        <section className={styles['creators']}>
+        <LazyViewAnimate classes={styles.creators}>
             <h2 className='section__title'>Our Creators</h2>
             <p className='section__subtitle'>
                 The largest and unique Super rare NFT marketplace
@@ -35,7 +36,7 @@ const Creators = (props: Props) => {
                         ) : null}
             </div>
             <Button type="default" className={`section__more-button ${inter.className}`}>Explore More</Button>
-        </section>
+        </LazyViewAnimate>
     )
 }
 

@@ -19,6 +19,7 @@
     "body-scroll-lock": "^4.0.0-beta.0",
     "eslint": "8.30.0",
     "eslint-config-next": "13.0.7",
+    "framer-motion": "^8.1.9",
     "next": "13.0.7",
     "next-redux-wrapper": "^8.0.0",
     "react": "18.2.0",

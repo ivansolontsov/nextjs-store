@@ -6,6 +6,7 @@ import CategoryBar from '../../components/catalog/CategoryBar'
 import ProductList from '../../components/catalog/ProductList'
 import { useGetProductsByParametersQuery } from '../../store/products/ProductApi'
 import { Inter } from '@next/font/google'
+import MotionLayout from '../../components/Layouts/MotionLayout'
 const inter = Inter({ weight: ['400'], subsets: ['latin'], style: ['normal'], })
 
 
