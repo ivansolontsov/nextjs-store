@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 type Props = {
     children: React.ReactNode
-    classes?: any,
+    classes?: string,
 }
 
 const LazyViewAnimate = ({ children, classes }: Props) => {

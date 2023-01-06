@@ -53,7 +53,7 @@ export function App({ Component, pageProps }: AppProps) {
           <AppLayout>
             <AnimatePresence
               initial={true}
-              mode='wait'
+              mode='sync'
             >
               <Component {...pageProps} />
             </AnimatePresence>

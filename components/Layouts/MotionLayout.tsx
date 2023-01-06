@@ -3,11 +3,13 @@ import { motion } from "framer-motion";
 
 type Props = {
     children: React.ReactNode
+    classes?: string,
 }
 
-const MotionLayout = ({ children }: Props) => {
+const MotionLayout = ({ children, classes }: Props) => {
     return (
         <motion.main
+            className={classes}
             initial={{ x: 300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 300, opacity: 0 }}
