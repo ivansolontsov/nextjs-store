@@ -1,6 +1,6 @@
 .roadmap {
     margin-top: 160px;
-    padding: 0px 120px;
+    padding: 0px 0px;
 }
 
 .roadmap__months {
@@ -9,6 +9,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
+    max-width: 1200px;
+    margin: 54px auto 0px auto;
 }
 
 .roadmap__month-item {

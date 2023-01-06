@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../styles/Roadmap.module.css'
+import { AnimatePresence, motion } from 'framer-motion'
 
 type Props = {
     direction?: string,
@@ -11,13 +12,20 @@ type Props = {
 
 const RoadMapCard = ({ direction, first, title, text, month }: Props) => {
     return (
-        <div style={
-            first
-                ? {}
-                : direction === 'left'
-                    ? { marginTop: '-6px' }
-                    : { marginTop: '120px' }
-        } className={`${styles['roadmap__month-item']} ${direction === 'left' ? '' : styles._right}`}>
+        <motion.div
+            initial={direction === "left"
+                ? { x: -100 }
+                : { x: 100 }}
+            whileInView={{ x: 0 }}
+            viewport={{ once: true }}
+            className={`${styles['roadmap__month-item']} ${direction === 'left' ? '' : styles._right}`}
+            style={
+                first
+                    ? {}
+                    : direction === 'left'
+                        ? { marginTop: '-6px' }
+                        : { marginTop: '120px' }
+            }>
             <div className={`${direction === "left" ? styles['roadmap__month-arrow_left'] : styles['roadmap__month-arrow_right']}`}>
                 <div className={`${direction === 'left' ? styles['roadmap__month-dot_left'] : styles['roadmap__month-dot_right']}`}></div>
             </div>
@@ -42,7 +50,8 @@ const RoadMapCard = ({ direction, first, title, text, month }: Props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div >
+
     )
 }
 
